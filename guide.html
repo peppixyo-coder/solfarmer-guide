@@ -3,26 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SolFarmer Beginner Guide 2026: How to Start Free and Reach Level 15 Without Depositing</title>
-<meta name="description" content="A practical SolFarmer guide for new players: the two currencies, why rack slots matter more than money, how XP actually works, what to buy first, and how withdrawals at the 0.1 SOL threshold really work.">
-<link rel="canonical" href="https://peppixyo-coder.github.io/solfarmer-guide/guide.html">
+<title>SolFarmer Guide 2026: Complete Beginner's Guide to Earning Real SOL</title>
+<meta name="description" content="The complete 2026 SolFarmer guide: SOL vs SSOL, the hashrate-per-SOL buy ladder, merging, XP, the Camp and PvP, guilds, marketplace, and honest withdrawal numbers.">
+<link rel="canonical" href="https://solfarmer-guide.pages.dev/guide.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SolFarmer Beginner Guide (2026): Start Free, Reach Level 15">
-<meta property="og:description" content="Two currencies, 12 rack slots, an XP table and a level 9 wall. What to do first in SolFarmer.">
-<meta property="og:url" content="https://peppixyo-coder.github.io/solfarmer-guide/guide.html">
-<meta property="og:image" content="https://peppixyo-coder.github.io/solfarmer-guide/og.png">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="SolFarmer Guide 2026: Complete Beginner's Guide to Earning Real SOL">
+<meta property="og:description" content="How SolFarmer actually works in 2026: SOL vs SSOL, the buy ladder with real numbers, merging, XP, the Camp, guilds, market, withdrawals.">
+<meta property="og:url" content="https://solfarmer-guide.pages.dev/guide.html">
+<meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "SolFarmer Beginner Guide 2026: How to Start Free and Reach Level 15 Without Depositing",
+  "headline": "SolFarmer Guide 2026: Complete Beginner's Guide to Earning Real SOL",
   "datePublished": "2026-11-04",
   "dateModified": "2026-11-04",
   "author": {"@type": "Person", "name": "SolFarmer Guide"},
   "publisher": {"@type": "Organization", "name": "SolFarmer Guide"},
-  "description": "A practical SolFarmer guide for new players covering currencies, rack slots, XP, what to buy first, and withdrawals."
+  "description": "Complete SolFarmer beginner guide: SOL vs SSOL, the hashrate-per-SOL buy ladder, merging, XP, the Camp, guilds, market and withdrawals."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Is SolFarmer free to play?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Sign-up is free, you get a starter miner immediately and no wallet is needed to play. Free players earn pennies per month by design; the real curve starts with the first deposit."}},
+    {"@type": "Question", "name": "What is the fastest way to level up in SolFarmer?", "acceptedAnswer": {"@type": "Answer", "text": "Buy the cheapest miner, place it, and merge pairs. Buying, placing and merging each award XP, about 100 XP per pair of starter miners. Level requirements scale linearly."}},
+    {"@type": "Question", "name": "How does the miner merge system work?", "acceptedAnswer": {"@type": "Answer", "text": "Two identical miners at the same level merge into one at the next level: 16 level-1 miners become one level-5 miner. The fee scales with the miner and the success rate is 80%."}},
+    {"@type": "Question", "name": "What is SSOL and can I withdraw it?", "acceptedAnswer": {"@type": "Answer", "text": "SSOL is the in-game currency added in November 2026. Deposited SOL converts to SSOL and cannot be withdrawn or converted back. Only mining and PvP season rewards produce withdrawable SOL."}},
+    {"@type": "Question", "name": "What is the minimum SolFarmer withdrawal?", "acceptedAnswer": {"@type": "Answer", "text": "0.1 SOL, on-chain and visible on Solscan. You need a Solana wallet such as Phantom or Solflare to receive it."}},
+    {"@type": "Question", "name": "What unlocks at level 15 in SolFarmer?", "acceptedAnswer": {"@type": "Answer", "text": "The Camp: pick a character class, run luck-based loot expeditions, and fight offline turn-based PvP for seasonal SOL prizes."}}
+  ]
 }
 </script>
 </head>
@@ -34,9 +47,9 @@
 
 <main>
 <article>
-<h1>SolFarmer beginner guide: the first fifteen levels without wasting a week</h1>
+<h1>The complete SolFarmer guide (2026)</h1>
 
-<p class="lead">SolFarmer does not explain itself well. The two currencies look alike, the XP table is hidden in screens you have opened three times, and the level 9 wall arrives before you understand why. Everything below comes from playing the game with a free account and no deposits — including the mistakes.</p>
+<p class="lead">SolFarmer is a browser idle-mining game on Solana that pays out in real SOL. It is also designed, top to bottom, to separate you from your money. This guide is written by a player, not the developer: it explains how the game actually works, what to do first, and — most importantly — what the promo videos and the referral shills do not tell you. Everything marked "in the game files" comes from the game's own client code.</p>
 
 <div class="code-box">
   <div>
@@ -45,131 +58,179 @@
   </div>
   <button class="copy" onclick="navigator.clipboard.writeText('E62B37FF');this.textContent='Copied'">Copy</button>
 </div>
-<p>Fills in itself on <a href="https://solfarmer.io/auth?ref=E62B37FF">this sign-up link</a>. It gives neither of us a bonus — it is an affiliate tag that pays the author a cut of deposits. <a href="./">Full disclosure and earnings figures</a>.</p>
+<p>It pre-fills on <a href="https://solfarmer.io/auth?ref=E62B37FF">this sign-up link</a>. It gives you nothing extra — it tags the author as your referrer, which pays a cut of your deposits. Full disclosure and honest earnings numbers on the <a href="./">referral page</a>.</p>
 
-<h2>1. The two currencies: SOL vs SSOL</h2>
-<p>This is the single most expensive confusion in the game. They look interchangeable and are not.</p>
+<nav class="toc">
+<strong>Contents</strong>
+<ol>
+<li><a href="#what">What SolFarmer actually is</a></li>
+<li><a href="#currencies">SOL vs SSOL — the November 2026 economy change</a></li>
+<li><a href="#dailies">The free daily loop, in order</a></li>
+<li><a href="#racks">Rack slots, power and merging</a></li>
+<li><a href="#xp">XP and the fastest way to level</a></li>
+<li><a href="#shop">What to buy: the hashrate-per-SOL ladder</a></li>
+<li><a href="#camp">Level 15: The Camp, classes and PvP</a></li>
+<li><a href="#guilds">Guilds, guild wars and mining pools</a></li>
+<li><a href="#market">The player marketplace</a></li>
+<li><a href="#withdraw">Withdrawing your SOL, step by step</a></li>
+<li><a href="#earnings">Honest earnings: the numbers nobody shows you</a></li>
+<li><a href="#seconds">Test it yourself, in three days</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#sources">Sources and updates</a></li>
+</ol>
+</nav>
 
+<h2 id="what">1. What SolFarmer actually is</h2>
+<p>A browser game — no download, no wallet needed to start. You sign up, receive a free Basic Validator, place it in an underground cavern, and it mines a share of a SOL pool whether the tab is open or not. Around that core: a shop of <strong>48 collectible rigs</strong> in four rarity tiers (Common, Rare, Epic, Legendary), a merge system, a story campaign in chapters, daily quests, a daily lucky chest, an arcade of 8 mini-games, guild wars, mining pools, a player market, and a separate expedition-and-PvP layer called the Camp.</p>
+<p>It pays out in real SOL, on-chain, verifiable on Solscan. <strong>That part is not a scam.</strong> The part that hurts people is that the game is pay-to-win by design and the whole economy is built around it — every SOL you deposit converts into a non-withdrawable internal currency. Treat it as a game you might spend money on, not as an income.</p>
+<div class="callout"><strong>The one-sentence version.</strong> SolFarmer is "Cookie Clicker with real money": a genuinely charming idle game wrapped around a real-SOL payout system that runs, in part, on other players' deposits.</div>
+
+<h2 id="currencies">2. SOL vs SSOL — the economy change nobody saw coming</h2>
+<p>In November 2026 SolFarmer added a second currency, <strong>SSOL</strong>, and it changed everything about how a new player should approach the game. <a href="https://solfarmer.io/ssol-economy">The official explanation</a> says SSOL exists to deter bots, push players toward mining, keep market prices stable, and enable automated withdrawals. The player-side reality is simpler and harsher:</p>
+<ul>
+  <li><strong>Deposited SOL converts to SSOL</strong>, and SSOL <em>cannot be withdrawn</em> or converted back into SOL. The conversion is one-way, in steps as small as 0.001 SOL (in the game files).</li>
+  <li><strong>The only withdrawable SOL now comes from mining and PvP season rewards.</strong> Quests, lucky chests, arcade prizes and marketplace sales are paid in SSOL — even where the marketing copy still says "real SOL".</li>
+  <li>Before the change, market sales paid out real SOL. Players who focused on the Camp and trading full-time found their bankroll locked: the only way back out is buying miners and mining it out — <strong>8&ndash;9 months</strong> by player estimates.</li>
+  <li>The change landed with about three days of notice. The official documentation used to read that assets may be withdrawn at any time.</li>
+</ul>
+<p><strong>Decide before your first deposit:</strong> deposited SOL is spent money, not an investment you can pull back out. Mine with it, play with it, never count on seeing it again in SOL form. The mining itself still pays real, withdrawable SOL — that part did not change.</p>
 <table>
-<caption>SOL and SSOL are different currencies</caption>
-<thead><tr><th></th><th>SOL</th><th>SSOL (shop currency)</th></tr></thead>
+<caption>SOL vs SSOL, side by side</caption>
+<thead><tr><th></th><th>SOL</th><th>SSOL (in-game currency)</th></tr></thead>
 <tbody>
-<tr><td>What it is</td><td>Real Solana, in your account balance</td><td>Internal currency for miners and fusing</td></tr>
-<tr><td>Comes from</td><td>Your farm mining over time</td><td>Deposits, marketplace sales, quest and arcade rewards</td></tr>
-<tr><td>Can you withdraw it</td><td>Yes, to a Solana wallet</td><td>No. It is meant to be spent inside the game</td></tr>
-<tr><td>Spent on</td><td>Only cashing out</td><td>Miner shop, merge fees, rig upgrades</td></tr>
+<tr><td>Real, withdrawable currency</td><td>Yes</td><td>No</td></tr>
+<tr><td>Comes from</td><td>Mining, PvP season rewards</td><td>Deposits (converted), quests, lucky chest, arcade, market sales</td></tr>
+<tr><td>Spent on</td><td>Withdrawals only</td><td>Miners, merges, upgrades, market listings, guild war pots</td></tr>
+<tr><td>Can it leave the game</td><td>Yes, to a Solana wallet</td><td>Never</td></tr>
 </tbody>
 </table>
 
-<p><strong>SOL drains out slowly, SSOL drains out instantly.</strong> Every purchase and every fusion (merge) is paid in SSOL, including the merge fee, which scales with the level of the miner. Racing fusions on an empty balance is how new players burn their only cash.</p>
-
-<h2>2. Rack slots are your real constraint, not money</h2>
-<p>The first room gives you roughly <strong>12 slots</strong>, and a slot is worth far more than any one miner. SBloccare spazio frees progress:</p>
-<ul>
-  <li>Fill all 12 with low-tier miners and growth stops flat, no matter your balance.</li>
-  <li><strong>Merge to compress.</strong> Two of the same miner fuse into one higher tier: same or better hashrate, one fewer slot. Two Lv1 become Lv2, two Lv2 become Lv3, and so on.</li>
-  <li>Space = income potential. Freeing four slots to place four bigger miners is worth more than a shop discount.</li>
-</ul>
-
-<div class="callout"><strong>Coming back to a rack packed with junk?</strong> Before buying anything new, merge everything that can be merged. A merge gives free XP and hands back slots. This costs nothing and it is the move that unsticks almost every stuck player.</div>
-
-<h2>3. How XP really works</h2>
-<p>There is no hidden XP source. Three actions, all on the rack:</p>
-<ul>
-  <li><strong>Buy</strong> a miner from the shop — XP.</li>
-  <li><strong>Place</strong> it on the rack — XP.</li>
-  <li><strong>Merge</strong> it — the largest payout per action.</li>
-</ul>
-<p>Which means the fastest level routine is: buy pairs of the cheapest miner the shop sells, place both, fuse them. Repeatedly. Levels 1&ndash;8 move fast; the curve then deliberately tightens.</p>
-
-<h3>The level 9 wall</h3>
-<p>Around <strong>level 9</strong> the XP requirement jumps: roughly <strong>6,400 XP needed passively vs 8,100 current</strong> in one playthrough, a gap that no amount of waiting closes. Two honest ways through it:</p>
+<h2 id="dailies">3. The free daily loop, in order</h2>
+<p>Idle games are won by routines, not by sessions. The developers hand the free part out generously — this is the order that captures all of it in about three minutes a day.</p>
 <ol>
-  <li><strong>Free (slow):</strong> keep buying and fusing the cheapest miners as small batches of SSOL arrive from arcade and quests. Weeks, not hours. This is the design.</li>
-  <li><strong>With a deposit (fast):</strong> a small deposit converts to SSOL, buys dozens of mid-tier miners in one go, and the XP lands in minutes. This is the moment the game wants you to hit.</li>
+  <li><strong>Claim your mined balance first.</strong> Rigs have a capacity limit: if you do not sweep earnings into your main balance, the miners stop working. Always the first click of the day.</li>
+  <li><strong>Daily check-in / streak.</strong> Rewards escalate each consecutive day; the day-7 payout is roughly 7&times; the day-1 one. Break the streak and it resets to nothing.</li>
+  <li><strong>Free lucky chest.</strong> One chest every 24 hours, guaranteed reward inside, with paid tiers from Bronze up to Cosmic. The free one pays around 0.0001&ndash;0.0005 SOL (in the game files). One click. Never skip it.</li>
+  <li><strong>Bounty Board (daily quests).</strong> A few objectives like "merge miners" or "play one arcade game" — the client ships with 3 per day by default (in the game files). Thirty seconds each, paid in currency and XP.</li>
+  <li><strong>Daily Arcade.</strong> Eight retro mini-games (Snake, Hash Slots, Runner and friends), <strong>one play per game per UTC day</strong> — no grinding trap. High scores pay out and the top of the daily table takes about 30% of the prize pool. Every point you score during a guild war also counts for your team.</li>
+  <li><strong>Social hub and friend visits.</strong> Visit other farms and leave a "like": you earn a small tip, and players who visit your farm pay you back. Going first creates the reciprocity that fills your own claimable social balance. The Tavern hub and named companion characters live in the same section.</li>
+  <li><strong>Story quests / chapters.</strong> The campaign pays out as you discover new chapters — Chapter VI: "Mastery" is the latest, deployed June 23, 2026. Claim everything completed before you log off.</li>
 </ol>
-<p>Prefer the free route? Then stay patient and keep the daily loop running — there is no trick that skips the wall without currency behind it.</p>
+<div class="callout"><strong>Do not chase the arcade leaderboard.</strong> Top daily scores run into the tens of thousands of points and are scripted runs, not human play. Treat the arcade as a small fixed daily income and the top cut as out of reach.</div>
 
-<h2>4. What to buy, and when</h2>
-<p>Do not queue up expensive miners on credit while the rack is crammed. The order that works:</p>
+<h2 id="racks">4. Rack slots, power and merging: the real gameplay</h2>
+<p>Your starting room has <strong>12 slots</strong> and a fixed power capacity. Slots — and watts, not money — are the binding constraint: fill all 12 with starter miners and the farm stops growing no matter how much you spend. Every rig in the shop has a power draw, and the client also applies an electricity cost per watt, so an over-powered room quietly eats into your share.</p>
+<ul>
+  <li><strong>Merge to compress.</strong> Two identical miners at the same level fuse into one miner of the next level. <strong>16 level-1 miners become one level-5 miner</strong>, and that level-5 does the work of 16 for the space and the power draw of a single rig. This is the core mechanic of the entire game.</li>
+  <li><strong>Merges can pay out extra.</strong> A successful merge can roll a bonus hash-rate percentage (2.7% on one observed merge). The client ships with an <strong>80% merge success rate</strong> (in the game files) — expect roughly one merge in five to fail and budget for it.</li>
+  <li><strong>The merge fee scales steeply.</strong> The base is 0.001, multiplied by ~1.8 per level (in the game files), so late-game merges cost a real chunk of the miners' value.</li>
+  <li><strong>Merging never increases power draw.</strong> Compare rigs by hash rate <em>per slot and per watt</em>, not by purchase price.</li>
+  <li><strong>Stacking bonuses</strong> for same-rarity or same-miner groups in one room are negligible until you have high-rarity racks. Raw hash rate wins the first two weeks, every time.</li>
+</ul>
+<div class="callout"><strong>Coming back to a full rack?</strong> Merge everything that can be merged <em>before</em> buying anything new. A merge hands back slots, gives free XP, and needs no new power capacity. This one habit unsticks almost every stalled account.</div>
+
+<h2 id="xp">5. XP and the fastest way to level</h2>
+<p>There are three XP sources, all on the rack: <strong>buying</strong> a miner, <strong>placing</strong> it, and <strong>merging</strong>. Buying 25, placing 15, merging 20 gives roughly <strong>100 XP per pair</strong> of starter miners — which is why the whole leveling routine is: buy pairs of the cheapest miner, place both, merge them, repeat.</p>
+<p>Level requirements <strong>scale linearly, not exponentially</strong> — confirmed by the game's top earners — so a free player can grind for months without the wall ever becoming insurmountable. Two consequences:</p>
 <ol>
-  <li><strong>Fuse everything first.</strong> Free, gives XP, opens space.</li>
-  <li><strong>Then buy by hashrate per slot</strong>, not by price. A cheap miner that costs a slot and returns pennies of hashrate is the most expensive item in the shop.</li>
-  <li><strong>Watch the power draw.</strong> Too many rigs without matching power caps the room; add capacity alongside miners or hashrate sits unused.</li>
+  <li><strong>The level 9 wall is real but finite.</strong> One observed run had ~6,400 XP available passively where ~8,100 were needed — a gap no amount of waiting closes. Through it: keep merging as small currency batches arrive (free, slow — this is the design), or make a small deposit (fast — this is exactly the moment the game wants you to hit).</li>
+  <li><strong>Levels keep unlocking real content</strong>: new shop tiers at 11, 15, 18, 24, 25, 32&hellip; The <strong>Forge</strong> (level 10) burns 3 miners to return a rarer variant, and the <strong>Camp</strong> (level 15) opens the whole second game inside the game — see <a href="#camp">section 7</a>.</li>
 </ol>
-
+<p>Leveling itself is not the point — <strong>hashrate is</strong>. Every level is only worth what it unlocks: a cheaper slot per unit of hashrate, or the next rung of the buy ladder below.</p>
+<h2 id="shop">6. What to buy: the hashrate-per-SOL ladder</h2>
+<p>This is the part most guides hand-wave. We parsed the game's own roster of 48 rigs and divided hashrate by price. The result is cleaner than the shop screen suggests, and it is the single most useful table in this guide.</p>
+<ul>
+  <li><strong>Every Common rig has exactly the same efficiency: 10 H/s per SOL.</strong> Within the common tier, buy whatever fits your budget — efficiency is identical, only size differs.</li>
+  <li><strong>Efficiency climbs with tier</strong>: Rare 11.0&ndash;12.8, Epic 12.57&ndash;13.25, Legendary 13.2&ndash;15.6. The shop charges a premium for the privilege, but bigger rigs are strictly more SOL-efficient, so the endgame favours legendary purchases.</li>
+  <li><strong>One trap:</strong> the RTX 3070 (level 25, epic) returns <em>less</em> hash rate per SOL than the RTX 3060 Ti (level 24, rare) it sits above — 12.57 vs 12.80. It is the only rig whose efficiency dips below the rung beneath it.</li>
+</ul>
 <table>
-<caption>Starter shop ladder, as listed in game (prices are shop currency)</caption>
-<thead><tr><th>Miner</th><th>Level</th><th>Hashrate</th><th>Shop price</th></tr></thead>
+<caption>Efficiency ladder — hash rate per SOL spent (from the game's roster)</caption>
+<thead><tr><th>Unlock</th><th>Miner</th><th>Hashrate</th><th>Price</th><th>H/s per SOL</th><th><span class="tag rare">Rare</span>/<span class="tag epic">Epic</span>/<span class="tag legendary">Legendary</span></th></tr></thead>
 <tbody>
-<tr><td>Basic Validator</td><td>1</td><td>0.01 H/s</td><td>0.001</td></tr>
-<tr><td>Nano Validator</td><td>1</td><td>0.05 H/s</td><td>0.005</td></tr>
-<tr><td>Budget Staker</td><td>2</td><td>0.2 H/s</td><td>0.02</td></tr>
-<tr><td>Dual Node</td><td>3</td><td>0.5 H/s</td><td>0.05</td></tr>
-<tr><td>Pi Validator Cluster</td><td>4</td><td>0.8 H/s</td><td>0.08</td></tr>
-<tr><td>GTX Validator</td><td>5</td><td>1.2 H/s</td><td>0.12</td></tr>
-<tr><td>RX Staker</td><td>6</td><td>1.5 H/s</td><td>0.15</td></tr>
-<tr><td>Quad Validator Server</td><td>7</td><td>2 H/s</td><td>0.2</td></tr>
-<tr><td>GTX Pro Validator</td><td>8</td><td>2.5 H/s</td><td>0.25</td></tr>
-<tr><td>12-Node Motherboard</td><td>10</td><td>3.5 H/s</td><td>0.35</td></tr>
+<tr><td>L1</td><td>Basic Validator</td><td>0.01 H/s</td><td>0.001</td><td>10.0</td><td><span class="tag common">Common</span></td></tr>
+<tr><td>L11</td><td>RX 580 Validator</td><td>5.5 H/s</td><td>0.5</td><td>11.0</td><td><span class="tag rare">Rare</span></td></tr>
+<tr><td>L15</td><td>RTX 2060 Validator</td><td>24 H/s</td><td>2</td><td>12.0</td><td><span class="tag rare">Rare</span></td></tr>
+<tr><td>L20</td><td>RTX 2080 Ti Validator</td><td>100 H/s</td><td>8</td><td>12.5</td><td><span class="tag rare">Rare</span></td></tr>
+<tr><td>L24</td><td>RTX 3060 Ti Node</td><td>160 H/s</td><td>12.5</td><td>12.8</td><td><span class="tag rare">Rare</span></td></tr>
+<tr><td>L25</td><td>RTX 3070 Validator</td><td>220 H/s</td><td>17.5</td><td>12.57</td><td><span class="tag epic">Epic</span></td></tr>
+<tr><td>L32</td><td>RTX 3080 Ti Validator</td><td>710 H/s</td><td>55</td><td>12.91</td><td><span class="tag epic">Epic</span></td></tr>
+<tr><td>L40</td><td>RTX 3090 Ti Validator</td><td>2,120 H/s</td><td>160</td><td>13.25</td><td><span class="tag epic">Epic</span></td></tr>
+<tr><td>L42</td><td>RTX 4070 Ti Node</td><td>4,700 H/s</td><td>350</td><td>13.43</td><td><span class="tag legendary">Legendary</span></td></tr>
+<tr><td>L52</td><td>RTX 4090 Validator</td><td>25,300 H/s</td><td>1,800</td><td>14.06</td><td><span class="tag legendary">Legendary</span></td></tr>
+<tr><td>L90</td><td>Fusion Validator</td><td>770,000 H/s</td><td>50,000</td><td>15.4</td><td><span class="tag legendary">Legendary</span></td></tr>
+<tr><td>L150</td><td>Solana Core</td><td>7,800,000 H/s</td><td>500,000</td><td>15.6</td><td><span class="tag legendary">Legendary</span></td></tr>
 </tbody>
 </table>
-<p>Higher tiers exist up to the legendary rigs (the roster currently lists <strong>48 rigs across four rarity tiers</strong>: Common, Rare, Epic, Legendary — four ranks up from the numbers above). Read the hashrate-per-slot column in your own shop before buying; unlock levels gate most of them.</p>
+<p><strong>Also check watts, not just SOL.</strong> The mid-tier "Solana Validator" rigs are power hogs: the V2 draws 2,520 W for 6,800 H/s (~2.7 H/s per watt) while an RTX 3090 Ti draws 450 W for 2,120 H/s (~4.7). At the very top the ratio flips again — the Solana Core is both the most SOL-efficient and the most watt-efficient rig in the game. If your room's power capacity is the bottleneck, favour GPU rigs.</p>
 
-<h2>5. What unlocks at each level</h2>
+<h2 id="camp">7. Level 15: The Camp, classes and PvP</h2>
+<p>The Camp is a second game inside the game, and the reason most long-term players stay. You pick a character, spend its skill points (3 per level), and do two things with it:</p>
 <ul>
-  <li><strong>1&ndash;8</strong> — Tutorial pace. Rack, power, shop, quests.</li>
-  <li><strong>9</strong> — The wall. From here the game stops being generous.</li>
-  <li><strong>10</strong> — <strong>The Forge</strong>. Burns 3 miners to give back something rarer than any of them — the SSOL sink that keeps the economy tight. Next story chapters unlock here too.</li>
-  <li><strong>15</strong> — <strong>The Camp</strong>. Send Farmers on expeditions across crystal forests, lava pits and icy peaks, loot up to Cosmic tier, forge mythic variants and earn new miners entirely outside the shop. This is the single biggest free-to-play unlock in the game: expeditions are the only meaningful path to a good rig without depositing.</li>
+  <li><strong>Expeditions.</strong> Send your character across biomes — crystal forests, lava pits, icy peaks — to loot gear. Expeditions are timer-based and luck-driven: Luck raises the chance of higher-tier drops, up to Cosmic. Looted gear can be equipped, forged into mythic variants, or sold on the marketplace.</li>
+  <li><strong>PvP.</strong> Turn-based, offline: your character fights other players' characters automatically. Attack against defence, skills against skills, best gear wins — victory is essentially decided by stats and gear before the fight plays out. Seasons run roughly every two weeks and pay out the top of the ladder.</li>
+</ul>
+<p><strong>The honest caveats.</strong> Camp income used to be real SOL from gear sales; after the SSOL change, loot sells for SSOL — a fire sale at the time of writing. And the top of the ladder is not a fair fight: serious guilds coordinate win-trading and gear-swapping between accounts, and one player documented a single guild member holding ~26% of the traded supply of over 500 items. Compete for fun and for the season prizes, not as an income.</p>
+<div class="callout"><strong>Free-to-play priority:</strong> The Camp is the only path to good gear and meaningful currency that does not pass through the deposit button. Level 15 is the single biggest unlock in the game — get there before you spend anything.</div>
+
+<h2 id="guilds">8. Guilds, guild wars and mining pools</h2>
+<ul>
+  <li><strong>Creating a guild costs 10 SOL</strong> (players report the price drops to ~2.5 at times); joining is free if a guild accepts you.</li>
+  <li><strong>Guild wars</strong> are a 24-hour hashrate duel against a rival guild. Members stake SSOL into a pot, every miner placed and every arcade point scored during the window counts toward the score, and the winning guild splits the pot — one documented pot was 6 SSOL.</li>
+  <li><strong>Mining pools</strong> distribute periodic rewards by hashrate contribution, league-tiered; <strong>guild membership also passively boosts your own farm's output.</strong> The boost is small at first and grows with the guild.</li>
+  <li><strong>Recruitment reality:</strong> serious guilds ask for 100+ H/s and, in some cases, proof of activity. Ignore any recruiter asking for a deposit up front — that is not how admission works.</li>
 </ul>
 
-<h2>6. The daily loop that is actually worth doing</h2>
+<h2 id="market">9. The player marketplace</h2>
+<p>Miners and Camp gear trade between players. The platform takes a <strong>3% fee</strong> on sales and allows listing prices from 0.0001 to 100 SOL (in the game files). Two things to know before you list:</p>
 <ol>
-  <li><strong>Lucky Box</strong> — one free chest per day. Click it. Rewards are small but they cost nothing.</li>
-  <li><strong>Daily Arcade</strong> — 8 mini-games, one play each, with a daily SSOL prize pool (the top of the table takes ~30%, the rest split the residual). Five minutes a day, every day.</li>
-  <li><strong>Bounties</strong> — daily and weekly checklists. They are fixed milestones, not daily randoms; new tiers appear as you progress rather than rotating. Claim everything completed.</li>
-  <li><strong>Streaks</strong> — daily logins compound. Miss a day and the multiplier resets.</li>
-  <li><strong>Research Lab</strong> — every upgrade is permanent and compounds on hours of idle time. Do it while you are in the game.</li>
-  <li><strong>Merge and buy in small batches</strong> as SSOL arrives from the above. Do not save for one monster purchase.</li>
+  <li><strong>Prices are player-set and manipulated.</strong> Low-volume items are easy to corner — documented cases include one account controlling ~26% of a 500+ item supply to set the price. Check recent sale history, not just the cheapest listing, before buying anything expensive.</li>
+  <li><strong>Sales pay SSOL now.</strong> Before November 2026 a sale returned withdrawable SOL; today it returns in-game currency. The market is where you convert duplicate rigs into useful ones — not where you cash out.</li>
 </ol>
 
-<h3>What not to bother with</h3>
+<h2 id="withdraw">10. Withdrawing your SOL, step by step</h2>
+<ol>
+  <li><strong>Minimum is 0.1 SOL.</strong> Below it, the client refuses the request outright: "Minimum withdrawal is 0.1 SOL."</li>
+  <li>Install a Solana wallet (Phantom, Solflare, Backpack) if you do not have one. Playing never required a wallet — cashing out does.</li>
+  <li>Request the withdrawal in-game, then confirm the transaction. It is a deliberate two-step flow: the confirm step is where a wrong address becomes permanent, so verify the first and last characters.</li>
+  <li>The transfer is on-chain: paste the transaction signature into <a href="https://solscan.io">Solscan</a> to watch it land, usually within seconds.</li>
+</ol>
+<div class="callout"><strong>Do a small test withdrawal first.</strong> One reddit user reported having their account banned after withdrawing 0.15 SOL as a test — a single, unverified report, but a cheap insurance policy worth copying: withdraw the minimum once, confirm it arrives, then move larger amounts. And note that the withdrawal security e-mail tends to land in the spam folder — check it there before assuming it never came.</div>
+
+<h2 id="earnings">11. Honest earnings: the numbers nobody shows you</h2>
+<p>Everything above this line was mechanics. This section is what those mechanics produce, from the game's own documentation and from a player who reached the top-5 earnings leaderboard:</p>
 <ul>
-  <li><strong>The arcade leaderboard.</strong> Top daily scores run into the tens of thousands of points; these are scripted runs, not human play. The prize pool's top cut is not a realistic target — treat the arcade as a small fixed daily income.</li>
-  <li><strong>Guilds as an income source.</strong> Guilds give a social layer and a hashrate boost, but the boost is measurably tiny at low membership lives, and most serious guilds require 100+ H/s to join. Ignore recruit messages demanding deposits; a guild that wants money ready should not matter for you yet.</li>
-  <li><strong>Anything that promises SOL for watching ads in your free time.</strong> Prospective income on the free tier is measured in cents per week. Play it because you like it, not because you are being paid.</li>
+  <li><strong>The game's own estimate for a new free player:</strong> 0.01&ndash;0.05 SOL in the first week — single-digit dollars at current prices.</li>
+  <li><strong>Paid progression, measured:</strong> ~20 SOL spent in the first three days produced roughly 1 SOL per month per 9 SOL invested early; mid-game that improved to about 1 SOL per month per 7 SOL invested.</li>
+  <li><strong>The free tier, measured:</strong> "pennies per month" — the top earner's own words. Free play funds itself slowly; it does not pay you.</li>
+  <li><strong>Hashrate pays proportionally to your share of the whole network</strong>, which means per-rig earnings <em>fall</em> as the player base grows — the classic first-mover advantage. The recent bot purge cut flood traffic, but it also cut the paying population.</li>
+  <li><strong>Deposits are not recoverable.</strong> Since the SSOL change, a deposit buys miners that mine back withdrawable SOL over months. That is the deal; read it before you pay.</li>
 </ul>
+<div class="callout"><strong>Verdict.</strong> SolFarmer is a well-made idle game with a real payout rail. As entertainment with a possible upside, fine. As an investment, the house odds are terrible and the "investors" are the product. Never deposit money you would not spend on a video game.</div>
 
-<h2>7. Withdrawing your SOL</h2>
+<h2 id="seconds">12. Test it yourself, in three days</h2>
+<p>You do not need this guide to vet the game — you need three days and a free account.</p>
 <ol>
-  <li><strong>Minimum withdrawal is 0.1 SOL.</strong> Below it the request button will not accept the transfer.</li>
-  <li>You need a Solana wallet (Phantom, Solflare and friends) to receive — playing never required one.</li>
-  <li>Withdrawal is a two-step operation: request, then confirm the transaction.</li>
-  <li><strong>Keep the address clean.</strong> Send to your own verified wallet; a wrong Solana address is not reversible.</li>
+  <li><strong>Day 1:</strong> sign up with no wallet, no deposit. Claim the free chest, play one arcade game, place the starter rig. Note how long it takes to reach level 5.</li>
+  <li><strong>Day 2:</strong> merge everything once, run the daily loop, check the bounty board. Ask yourself: was this fun, or was it a chore with a counter?</li>
+  <li><strong>Day 3:</strong> open the shop and the market, look at the legendary price tags (the top rig is 500,000 SOL), and compute how many months of free play each one represents.</li>
 </ol>
-<p>Everything else in the shop — SSOL, miners, upgrades — is not withdrawable cash. It is game board.</p>
+<p>Then decide. If the answer is "this is a fun game and I want to speed it up", deposit what a video game is worth to you. If the answer is "I want my money back out", do not start.</p>
 
-<h2>8. Referring friends (and what I get)</h2>
-<p>SolFarmer does not run a refer-in-the-app scheme: your code <strong>only</strong> exists for a new account, is only read at sign-up, and pays the referrer 5% of a referred player's deposits (3% and 2% on the tiers beneath them). If you are creating your account anyway, use <code>E62B37FF</code> — same deal for you, a couple of euros for me. If you would rather not, enter no code; it changes nothing about your game.</p>
+<h2 id="faq">13. FAQ</h2>
+<details><summary><strong>Is SolFarmer free to play?</strong></summary><p>Yes — free sign-up, free starter miner, no wallet needed. Free players earn pennies per month by design; the progression curve starts with the first deposit.</p></details>
+<details><summary><strong>What is the fastest way to level up?</strong></summary><p>Buy the cheapest miner, place it, merge pairs. Buying, placing and merging each grant XP (~100 XP per starter pair), and level costs scale linearly rather than exponentially.</p></details>
+<details><summary><strong>How does merging work?</strong></summary><p>Two identical miners at the same level become one of the next level; 16 level-1s become one level-5. Fee base 0.001 &times; ~1.8 per level, 80% success rate in the client.</p></details>
+<details><summary><strong>What is SSOL and can I withdraw it?</strong></summary><p>SSOL is the in-game currency added in November 2026. Deposits convert to SSOL one-way; SSOL cannot be withdrawn. Only mining and PvP season rewards produce withdrawable SOL.</p></details>
+<details><summary><strong>What is the minimum withdrawal?</strong></summary><p>0.1 SOL, on-chain, to a Solana wallet. Verify the address at the confirm step — it is the last point where a mistake is reversible.</p></details>
+<details><summary><strong>What unlocks at level 15?</strong></summary><p>The Camp: character classes, timed loot expeditions, and offline turn-based PvP with seasonal SOL prizes.</p></details>
+<details><summary><strong>Is SolFarmer a scam?</strong></summary><p>Not in the classic sense — withdrawals are real and on-chain. It is, however, a pay-to-win game whose economy was restructured in November 2026 so that deposits can no longer leave. Play it free first, deposit only what a game is worth to you, and expect to withdraw rarely.</p></details>
+
+<h2 id="sources">14. Sources and updates</h2>
+<p>Game data verified against SolFarmer's public client (roster of 48 rigs with prices, hashrates, power draws; economy constants: 3% market fee, 80% merge success, 0.001 base merge cost, 0.1 SOL withdrawal floor) — <a href="https://solfarmer.io">solfarmer.io</a>. Economy rationale: <a href="https://solfarmer.io/ssol-economy">the official SSOL economy page</a>. Earnings context: the game's <a href="https://solfarmer.io/blog/earn-free-solana-2026">official earnings blog post</a> and community coverage on <a href="https://www.reddit.com/r/solfarmer/">r/solfarmer</a>.</p>
+<p>Independent, unofficial guide. Not affiliated with, endorsed by, or sponsored by SolFarmer. Last updated November 2026; the game ships frequent updates — verify in-game numbers before spending.</p>
 
 <p class="cta-row"><a class="cta" href="https://solfarmer.io/auth?ref=E62B37FF">Start free with code E62B37FF pre-filled &rarr;</a></p>
-
-<h2>Quick reference</h2>
-<table>
-<caption>Numbers worth remembering</caption>
-<tbody>
-<tr><td>Free starter miner</td><td>Yes, immediately at sign-up</td></tr>
-<tr><td>Wallet needed to play</td><td>No. Only to withdraw</td></tr>
-<tr><td>Starting rack slots</td><td>~12</td></tr>
-<tr><td>Rarity tiers</td><td>4 — Common, Rare, Epic, Legendary (48 rigs)</td></tr>
-<tr><td>Forge</td><td>Level 10 — burns 3 miners</td></tr>
-<tr><td>The Camp</td><td>Level 15 — expeditions and new miner paths</td></tr>
-<tr><td>Minimum withdrawal</td><td>0.1 SOL</td></tr>
-<tr><td>Marketplace fee</td><td>~5% on player-to-player sales</td></tr>
-<tr><td>Starter shop hashrates</td><td>0.01 H/s (first rig) up to 3.5 H/s (Lv10)</td></tr>
-</tbody>
-</table>
 </article>
 
 <aside class="disclosure">

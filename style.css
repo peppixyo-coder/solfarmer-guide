@@ -82,3 +82,17 @@ p code,li code,td code{
   table{font-size:14.5px}
   th,td{padding:8px}
 }
+
+/* indice interno */
+.toc{background:#0b0e13;border:1px solid #2e3b50;border-radius:11px;padding:14px 20px;margin:20px 0}
+.toc strong{display:block;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.toc ol{margin:6px 0 0;padding-left:22px;columns:2;column-gap:28px}
+.toc li{margin:3px 0;break-inside:avoid}
+.toc a{text-decoration:none;color:#b9ccdf}
+.toc a:hover{color:#fff;text-decoration:underline}
+@media (max-width:640px){.toc ol{columns:1}}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.5px;padding:2px 9px;border-radius:20px;vertical-align:middle;margin-left:6px}
+.tag.common{background:#22303f;color:#a8c4e0}
+.tag.rare{background:#1d2c4d;color:#8fb4ff}
+.tag.epic{background:#2c2348;color:#c3a4ff}
+.tag.legendary{background:#3a2a12;color:#ffcf7d}

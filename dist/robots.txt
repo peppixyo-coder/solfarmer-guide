@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://solfarmer-guide.pages.dev/sitemap.xml

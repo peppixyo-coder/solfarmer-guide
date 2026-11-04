@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://peppixyo-coder.github.io/solfarmer-guide/sitemap.xml
+Sitemap: https://solfarmer-guide.pages.dev/sitemap.xml
