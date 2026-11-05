@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SolFarmer ROI Calculator — Rig Efficiency, Payback and Room Power Budget</title>
+<meta name="description" content="Free calculator for SolFarmer: hashrate per SOL, hashrate per watt, room power budget, daily SOL yield and payback time for all 48 rigs, using the game client's own economy constants.">
+<link rel="canonical" href="https://solfarmer-guide.pages.dev/calc.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SolFarmer ROI Calculator — 48 rigs, real client numbers">
+<meta property="og:description" content="Hashrate per SOL, hashrate per watt, room power budget and payback time for every SolFarmer rig.">
+<meta property="og:url" content="https://solfarmer-guide.pages.dev/calc.html">
+<link rel="stylesheet" href="style.css">
+<style>
+.controls{display:grid; grid-template-columns:minmax(250px,2fr) repeat(3,minmax(120px,1fr)); gap:14px; margin:18px 0 6px}
+@media (max-width:640px){.controls{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}}
+.controls label{display:block; font-size:11.5px; text-transform:uppercase; letter-spacing:1.4px; color:var(--dim); margin-bottom:7px}
+.controls select,.controls input{width:100%; padding:11px 12px; background:#0a111c; color:var(--txt);
+  border:1px solid #24354f; border-radius:10px; font-size:15px; transition:border-color .15s}
+.controls select:hover,.controls input:hover{border-color:#33507a}
+.controls select:focus,.controls input:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px #39c8ff22}
+.results{display:grid; grid-template-columns:repeat(auto-fit,minmax(146px,1fr)); gap:12px; margin:22px 0 8px}
+.card{
+  position:relative; overflow:hidden;
+  background:linear-gradient(160deg,#101a2a,#0b111c); border:1px solid #23385a;
+  border-radius:13px; padding:15px 17px;
+}
+.card::before{content:""; position:absolute; inset:0 0 auto 0; height:2px; background:var(--grad); opacity:.75}
+.card .k{display:block; font-size:11px; text-transform:uppercase; letter-spacing:1.3px; color:var(--dim); margin-bottom:6px}
+.card .v{font-size:22px; font-weight:800; color:var(--code); font-variant-numeric:tabular-nums; letter-spacing:-.4px}
+.card .s{display:block; font-size:12.5px; color:var(--dim); margin-top:4px; line-height:1.45}
+table.tight td,table.tight th{padding:8px 10px; font-size:13.8px}
+table.tight{font-size:13.8px; max-height:none}
+table.tight thead th{position:sticky; top:56px; z-index:2}
+.sortbar{display:flex; gap:8px; flex-wrap:wrap; margin:16px 0 0}
+.sortbar button{background:#0a111c; color:var(--dim); border:1px solid #24354f; border-radius:9px;
+  padding:9px 14px; font-size:13px; cursor:pointer; transition:.15s; font-weight:600}
+.sortbar button:hover{color:var(--txt); border-color:#33507a}
+.sortbar button.on{background:linear-gradient(135deg,#39c8ff,#2f9fe0); color:#04101d; border-color:transparent; font-weight:800}
+.note{font-size:13.5px; color:var(--dim); line-height:1.6}
+</style>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="./">Sol<span>Farmer</span> Guide</a>
+  <nav><a href="./">Referral code</a><a href="guide.html">Guide</a><a href="calc.html">Calculator</a></nav>
+</header>
+<main>
+<article>
+<h1>ROI calculator: what a rig actually costs you</h1>
+<p class="lead">Every number here comes from the game client's own roster and economy constants. Pick a rig, see how much hash rate it buys, how much room power it eats, what it earns per day and how long it takes to pay itself back.</p>
+
+<div class="callout"><strong>Read this before trusting any "profit" number.</strong> In SolFarmer <em>power is not an electricity bill</em> — it is the watt budget of the room the rig sits in (2,000 W in the starter rack, up to 50,000 W in the Industrial Complex). Real-world kWh prices do not apply. Efficiency in this game means <strong>how much hash rate fits inside a room</strong>, and that is what the H/s per W column measures.</div>
+
+<h2>The calculation</h2>
+<div class="controls">
+  <div><label for="rig">Rig</label><select id="rig"></select></div>
+  <div><label for="qty">Quantity</label><input id="qty" type="number" min="1" max="500" step="1" value="1"></div>
+  <div><label for="price">SOL price</label><input id="price" type="number" min="0" step="0.01" value="150"></div>
+  <div><label for="claims">Claims / day</label><input id="claims" type="number" min="1" max="6" step="1" value="3"></div>
+</div>
+<p class="note">Claims per day matters because the client caps the pending-earnings window at <strong>8 hours</strong>: three claims a day collect the full 24, one claim collects a third of it.</p>
+
+<h3>Calibrate with your own numbers (recommended)</h3>
+<p class="note">The client ships its earnings rate as a <em>fallback</em>: the live value comes from the server and can differ. Open the game, read your total hash rate and your pending SOL for one day, put both here — the whole page, table included, recalculates on your personal rate.</p>
+<div class="controls">
+  <div><label for="cal-h">My total hash rate (H/s)</label><input id="cal-h" type="number" min="0" step="0.01" placeholder="e.g. 13"></div>
+  <div><label for="cal-sol">My SOL per day</label><input id="cal-sol" type="number" min="0" step="0.000001" placeholder="e.g. 0.0043"></div>
+  <div style="grid-column:span 2"><p class="note" id="cal-mode" style="margin:0">Using the client's default rate (0.00000023 SOL per H/s per minute). Fill both fields to switch to your own.</p></div>
+</div>
+
+<div class="results">
+  <div class="card"><span class="k">Hash rate</span><span class="v" id="o-h">—</span><span class="s">H/s total</span></div>
+  <div class="card"><span class="k">Power draw</span><span class="v" id="o-w">—</span><span class="s">W total</span></div>
+  <div class="card"><span class="k">SOL per day</span><span class="v" id="o-sol">—</span><span class="s" id="o-sols">at the claim rate above</span></div>
+  <div class="card"><span class="k">Value per day</span><span class="v" id="o-usd">—</span><span class="s" id="o-usds">gross, before any fee</span></div>
+  <div class="card"><span class="k">Payback</span><span class="v" id="o-pb">—</span><span class="s">days to earn back the price</span></div>
+  <div class="card"><span class="k">H/s per SOL</span><span class="v" id="o-hps">—</span><span class="s">capital efficiency</span></div>
+  <div class="card"><span class="k">H/s per watt</span><span class="v" id="o-hpw">—</span><span class="s">room efficiency</span></div>
+  <div class="card"><span class="k">Fits in starter rack</span><span class="v" id="o-fit">—</span><span class="s">12 slots, 2,000 W</span></div>
+</div>
+
+<h2>Room power budget</h2>
+<p>Rooms are the real constraint after level 1: each has a slot count <em>and</em> a watt ceiling, and the cheaper-per-watt rig packs more hash rate into the same room. This table uses the rig selected above.</p>
+<table class="tight">
+<thead><tr><th>Room</th><th>Unlock</th><th>Cost</th><th>Slots</th><th>Power</th><th>Rigs that fit</th><th>Hash rate in room</th></tr></thead>
+<tbody id="rooms"></tbody>
+</table>
+
+<h2>All 48 rigs</h2>
+<div class="sortbar">
+  <button data-sort="hps" class="on">Sort: H/s per SOL</button>
+  <button data-sort="hpw">Sort: H/s per watt</button>
+  <button data-sort="price">Sort: price</button>
+</div>
+<table class="tight">
+<thead><tr><th>Rig</th><th>Tier</th><th>Unlock</th><th>Price SOL</th><th>Hash</th><th>Power</th><th>Hash / SOL</th><th>Hash / W</th><th>Payback, d</th></tr></thead>
+<tbody id="all"></tbody>
+</table>
+<p class="note">The green row is the best in the current sort. Payback uses one unit of each rig at your SOL price and claim rate, so it is comparable across tiers; it ignores merge bonuses, quests, chests and PvP, which is why real play earns somewhat more than this table.</p>
+
+<h2>Sources and caveats</h2>
+<ul>
+  <li><strong>Roster</strong> (names, prices, hash rates, watt draws, unlock levels): the 48-rig array inside the game client.</li>
+  <li><strong>Yield formula</strong>: pending earnings = <code>(total_hashrate / 10,000) &times; solPerHashrate &times; minutes</code>, with minutes capped at 480. The client ships <code>solPerHashrate = 0.00000023</code>.</li>
+  <li><strong>Rooms</strong>: Starter Rack 12 slots / 2,000 W free at level 1; Small Datacenter 0.5 SOL / 24 slots / 5,000 W at 10; Medium 5 SOL / 36 slots / 10,000 W at 20; Large 50 SOL / 48 slots / 20,000 W at 35; Industrial 500 SOL / 72 slots / 50,000 W at 50.</li>
+  <li><strong>The caveat that matters</strong>: the client fetches these constants from the server at runtime (<code>/economy</code>), so live values can differ from the shipped defaults. If your in-game pending balance disagrees with this page by a constant factor, the server overrode the rate — divide your real daily yield by the number here to get your personal multiplier.</li>
+</ul>
+<div class="cta-row"><a class="cta" href="guide.html">Read the full guide</a></div>
+</article>
+</main>
+<script>
+const RIGS = [["Basic Validator","common",1,0.001,0.01,50.0],["Nano Validator","common",1,0.005,0.05,20.0],["Budget Staker","common",2,0.02,0.2,150.0],["Dual Node","common",3,0.05,0.5,200.0],["Pi Validator Cluster","common",4,0.08,0.8,80.0],["GTX Validator","common",5,0.12,1.2,120.0],["RX Staker","common",6,0.15,1.5,140.0],["Quad Validator Server","common",7,0.2,2.0,400.0],["GTX Pro Validator","common",8,0.25,2.5,150.0],["12-Node Motherboard","common",10,0.35,3.5,200.0],["RX 580 Validator","rare",11,0.5,5.5,180.0],["GTX 1080 Node","rare",12,0.75,8.5,180.0],["Vega Validator","rare",13,1.0,11.5,210.0],["GTX 1080 Ti Node","rare",14,1.5,17.5,250.0],["RTX 2060 Validator","rare",15,2.0,24.0,160.0],["Vega Pro Node","rare",16,2.5,30.0,295.0],["RTX 2070 Node","rare",17,3.5,42.5,175.0],["Radeon VII Validator","rare",18,4.5,55.0,300.0],["RTX 2080 Node","rare",19,6.0,74.0,215.0],["RTX 2080 Ti Validator","rare",20,8.0,100.0,260.0],["RX 5700 XT Node","rare",22,10.0,125.0,225.0],["RTX 3060 Ti Node","rare",24,12.5,160.0,200.0],["RTX 3070 Validator","epic",25,17.5,220.0,220.0],["RX 6700 XT Node","epic",26,22.5,285.0,230.0],["RTX 3080 Validator","epic",28,30.0,380.0,320.0],["RX 6800 Node","epic",30,40.0,510.0,250.0],["RTX 3080 Ti Validator","epic",32,55.0,710.0,350.0],["RX 6800 XT Node","epic",34,70.0,910.0,300.0],["RTX 3090 Validator","epic",36,90.0,1180.0,350.0],["RX 6900 XT Node","epic",38,120.0,1580.0,300.0],["RTX 3090 Ti Validator","epic",40,160.0,2120.0,450.0],["Solana Validator V1","legendary",40,250.0,3300.0,1350.0],["RTX 4070 Ti Node","legendary",42,350.0,4700.0,285.0],["Solana Validator V2","legendary",44,500.0,6800.0,2520.0],["RTX 4080 Validator","legendary",46,700.0,9600.0,320.0],["RX 7900 XTX Node","legendary",48,950.0,13200.0,355.0],["Solana Validator Pro","legendary",50,1300.0,18200.0,3250.0],["RTX 4090 Validator","legendary",52,1800.0,25300.0,450.0],["Solana Farm Standard","legendary",55,2500.0,35500.0,3250.0],["Solana Validator XP","legendary",58,3500.0,50000.0,3010.0],["SolFarm Industrial","legendary",60,5000.0,72000.0,3344.0],["SolNode Elite","legendary",65,7000.0,102000.0,3050.0],["SolFarm M50","legendary",70,10000.0,147000.0,3306.0],["Avalon SolNode","legendary",75,15000.0,225000.0,3420.0],["Quantum Validator \u03b1","legendary",80,25000.0,375000.0,5000.0],["Fusion Validator","legendary",90,50000.0,770000.0,10000.0],["AI Neural Validator","legendary",100,100000.0,1550000.0,15000.0],["Solana Core","legendary",150,500000.0,7800000.0,50000.0]];
+const ROOMS = [
+  {n:"Starter Rack", lv:1, cost:0, slots:12, power:2000},
+  {n:"Small Datacenter", lv:10, cost:0.5, slots:24, power:5000},
+  {n:"Medium Datacenter", lv:20, cost:5, slots:36, power:10000},
+  {n:"Large Datacenter", lv:35, cost:50, slots:48, power:20000},
+  {n:"Industrial Complex", lv:50, cost:500, slots:72, power:50000}
+];
+const SOL_PER_HASH_MIN = 2.3e-7;
+const CAP_MIN = 480;
+const $ = id => document.getElementById(id);
+const fmt = (n, d) => n.toLocaleString("en-US", {maximumFractionDigits: d === undefined ? 2 : d});
+const money = n => n.toLocaleString("en-US", {maximumFractionDigits: n < 1 ? 4 : 2});
+
+// Tasso effettivo: default del client, oppure calibrato sui numeri reali dell'utente.
+function ratePerHashMin() {
+  const myH = +$("cal-h").value || 0;
+  const mySol = +$("cal-sol").value || 0;
+  if (myH > 0 && mySol > 0) return mySol / myH / 1440;
+  return SOL_PER_HASH_MIN;
+}
+
+const sel = $("rig");
+RIGS.forEach((r, i) => {
+  const o = document.createElement("option");
+  o.value = i;
+  o.textContent = r[0] + "  ·  L" + r[2];
+  sel.appendChild(o);
+});
+sel.value = Math.max(0, RIGS.findIndex(r => r[0] === "RTX 3060 Ti Node"));
+
+function yieldPerDay(h, claims) {
+  const minutes = Math.min(1440, claims * CAP_MIN);
+  return h * ratePerHashMin() * minutes;
+}
+function state() {
+  const r = RIGS[+sel.value];
+  const qty = Math.max(1, +$("qty").value || 1);
+  const price = Math.max(0, +$("price").value || 0);
+  const claims = Math.min(6, Math.max(1, +$("claims").value || 3));
+  const h = r[4] * qty, w = r[5] * qty, cost = r[3] * qty;
+  const sol = yieldPerDay(h, claims);
+  const usd = sol * price;
+  return {r, qty, price, claims, h, w, cost, sol, usd, pb: usd > 0 ? cost * price / usd : Infinity};
+}
+function render() {
+  const s = state();
+  $("o-h").textContent = fmt(s.h, 2);
+  $("o-w").textContent = fmt(s.w, 0) + " W";
+  $("o-sol").textContent = s.sol < 0.01 ? s.sol.toFixed(6) : fmt(s.sol, 4);
+  $("o-usd").textContent = money(s.usd);
+  $("o-pb").textContent = isFinite(s.pb) ? fmt(s.pb, 0) : "never";
+  $("o-hps").textContent = fmt(s.r[4] / s.r[3], 2);
+  $("o-hpw").textContent = (s.r[4] / s.r[5]).toFixed(3);
+  const fitStarter = Math.floor(2000 / s.r[5]);
+  $("o-fit").textContent = fitStarter >= 12 ? "12 (slots)" : fitStarter + " rigs";
+  $("o-sols").textContent = s.claims + " claim" + (s.claims > 1 ? "s" : "") + " / day";
+  $("o-usds").textContent = "gross, at " + (s.price ? money(s.price) : "—") + " per SOL";
+  const cal = +$("cal-h").value > 0 && +$("cal-sol").value > 0;
+  $("cal-mode").textContent = cal
+    ? "Calibrated on your numbers: " + (ratePerHashMin() * 1440).toExponential(3) + " SOL per H/s per day (" +
+      (ratePerHashMin() / SOL_PER_HASH_MIN).toFixed(2) + "× the client default)."
+    : "Using the client's default rate (0.00000023 SOL per H/s per minute). Fill both fields to switch to your own.";
+
+  $("rooms").innerHTML = ROOMS.map(room => {
+    const fit = Math.min(room.slots, Math.floor(room.power / s.r[5]));
+    const h = fit * s.r[4];
+    return "<tr><td>" + room.n + "</td><td>L" + room.lv + "</td><td>" + (room.cost ? room.cost + " SOL" : "free") +
+           "</td><td>" + room.slots + "</td><td>" + fmt(room.power, 0) + " W</td><td>" + fit +
+           "</td><td>" + fmt(h, 2) + " H/s</td></tr>";
+  }).join("");
+
+  drawAll(s);
+}
+function drawAll(s) {
+  const price = s.price, claims = s.claims;
+  const rows = RIGS.map(r => {
+    const sol = yieldPerDay(r[4], claims), usd = sol * price;
+    return {r, hps: r[4] / r[3], hpw: r[4] / r[5], pb: usd > 0 ? r[3] * price / usd : Infinity};
+  });
+  rows.sort((a, b) => sortKey === "hpw" ? b.hpw - a.hpw : sortKey === "price" ? a.r[3] - b.r[3] : b.hps - a.hps);
+  const best = rows[0];
+  $("all").innerHTML = rows.map(o => {
+    const r = o.r, mark = (o === best) ? ' class="best"' : "";
+    return "<tr" + mark + "><td>" + r[0] + "</td><td><span class='tag " + r[1] + "'>" + r[1] + "</span></td><td>L" + r[2] + "</td><td>" + money(r[3]) +
+           "</td><td>" + fmt(r[4], 2) + "</td><td>" + fmt(r[5], 0) + " W</td><td>" + o.hps.toFixed(2) +
+           "</td><td>" + o.hpw.toFixed(3) + "</td><td>" + (isFinite(o.pb) ? fmt(o.pb, 0) : "—") + "</td></tr>";
+  }).join("");
+}
+let sortKey = "hps";
+document.querySelectorAll(".sortbar button").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".sortbar button").forEach(x => x.classList.remove("on"));
+  b.classList.add("on");
+  sortKey = b.dataset.sort;
+  render();
+}));
+["rig", "qty", "price", "claims", "cal-h", "cal-sol"].forEach(id => $(id).addEventListener("input", render));
+render();
+</script>
+</body>
+</html>

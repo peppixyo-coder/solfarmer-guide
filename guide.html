@@ -42,7 +42,7 @@
 <body>
 <header class="site-head">
   <a class="brand" href="./">SolFarmer<span>Guide</span></a>
-  <nav><a href="./">Referral code</a><a href="guide.html">Beginner guide</a></nav>
+  <nav><a href="./">Referral code</a><a href="guide.html">Beginner guide</a><a href="calc.html">ROI calculator</a></nav>
 </header>
 
 <main>
@@ -67,6 +67,7 @@
 <li><a href="#currencies">SOL vs SSOL — the November 2026 economy change</a></li>
 <li><a href="#dailies">The free daily loop, in order</a></li>
 <li><a href="#racks">Rack slots, power and merging</a></li>
+<li><a href="#power">The energy ladder: watts, rooms, H/s per W</a></li>
 <li><a href="#xp">XP and the fastest way to level</a></li>
 <li><a href="#shop">What to buy: the hashrate-per-SOL ladder</a></li>
 <li><a href="#camp">Level 15: The Camp, classes and PvP</a></li>
@@ -108,7 +109,7 @@
 <h2 id="dailies">3. The free daily loop, in order</h2>
 <p>Idle games are won by routines, not by sessions. The developers hand the free part out generously — this is the order that captures all of it in about three minutes a day.</p>
 <ol>
-  <li><strong>Claim your mined balance first.</strong> Rigs have a capacity limit: if you do not sweep earnings into your main balance, the miners stop working. Always the first click of the day.</li>
+  <li><strong>Claim your mined balance first.</strong> The client computes your pending earnings as the minutes elapsed since your last claim, <strong>capped at 480 minutes (8 hours)</strong>. Claim every 8 hours or you are only collecting a fraction of what your rigs supposedly made — three claims a day covers all 24 hours, one claim a day covers a third of it.</li>
   <li><strong>Daily check-in / streak.</strong> Rewards escalate each consecutive day; the day-7 payout is roughly 7&times; the day-1 one. Break the streak and it resets to nothing.</li>
   <li><strong>Free lucky chest.</strong> One chest every 24 hours, guaranteed reward inside, with paid tiers from Bronze up to Cosmic. The free one pays around 0.0001&ndash;0.0005 SOL (in the game files). One click. Never skip it.</li>
   <li><strong>Bounty Board (daily quests).</strong> A few objectives like "merge miners" or "play one arcade game" — the client ships with 3 per day by default (in the game files). Thirty seconds each, paid in currency and XP.</li>
@@ -119,15 +120,44 @@
 <div class="callout"><strong>Do not chase the arcade leaderboard.</strong> Top daily scores run into the tens of thousands of points and are scripted runs, not human play. Treat the arcade as a small fixed daily income and the top cut as out of reach.</div>
 
 <h2 id="racks">4. Rack slots, power and merging: the real gameplay</h2>
-<p>Your starting room has <strong>12 slots</strong> and a fixed power capacity. Slots — and watts, not money — are the binding constraint: fill all 12 with starter miners and the farm stops growing no matter how much you spend. Every rig in the shop has a power draw, and the client also applies an electricity cost per watt, so an over-powered room quietly eats into your share.</p>
+<p>Your starting room has <strong>12 slots</strong> and a <strong>2,000 W power budget</strong>. Slots and watts — not money — are the binding constraints: fill the 12 slots and the farm stops growing no matter how much you spend, and a rig that draws more than the room allows cannot be placed at all. Every rig in the shop has a watt draw, and that number is a <em>room capacity</em> stat, not a real electricity bill: the client ships an <code>electricityCostPerWatt</code> constant in its economy settings, but nothing in the client charges it against your SOL balance. Treat watts as space, not as a cost.</p>
 <ul>
   <li><strong>Merge to compress.</strong> Two identical miners at the same level fuse into one miner of the next level. <strong>16 level-1 miners become one level-5 miner</strong>, and that level-5 does the work of 16 for the space and the power draw of a single rig. This is the core mechanic of the entire game.</li>
   <li><strong>Merges can pay out extra.</strong> A successful merge can roll a bonus hash-rate percentage (2.7% on one observed merge). The client ships with an <strong>80% merge success rate</strong> (in the game files) — expect roughly one merge in five to fail and budget for it.</li>
-  <li><strong>The merge fee scales steeply.</strong> The base is 0.001, multiplied by ~1.8 per level (in the game files), so late-game merges cost a real chunk of the miners' value.</li>
+  <li><strong>The merge fee is quoted, not calculated.</strong> Merging is priced server-side: the client sends the pair and receives back the new level, the new hash rate and the exact fee, so the number you see in the confirmation dialog is the real one. Its shipped fallback settings contain two different models (a base of 0.001 multiplied by ~1.8 per level, and tiered fees of 0.1 / 0.15 / 0.2 for L1&rarr;2, L3&rarr;4 and L5+), which is exactly why you should read the dialog instead of trusting a formula from a guide — including this one.</li>
   <li><strong>Merging never increases power draw.</strong> Compare rigs by hash rate <em>per slot and per watt</em>, not by purchase price.</li>
   <li><strong>Stacking bonuses</strong> for same-rarity or same-miner groups in one room are negligible until you have high-rarity racks. Raw hash rate wins the first two weeks, every time.</li>
 </ul>
 <div class="callout"><strong>Coming back to a full rack?</strong> Merge everything that can be merged <em>before</em> buying anything new. A merge hands back slots, gives free XP, and needs no new power capacity. This one habit unsticks almost every stalled account.</div>
+
+<h3 id="power">The energy ladder: watts, rooms and hash rate per watt</h3>
+<p>Hash rate per SOL tells you what a rig costs. <strong>Hash rate per watt tells you whether it fits.</strong> They are not the same ranking, and past level 30 the second one decides your farm. Every room has a watt ceiling as well as a slot count (from the game's room roster):</p>
+<table>
+<caption>Rooms — slots and power budget</caption>
+<thead><tr><th>Room</th><th>Unlock</th><th>Cost</th><th>Slots</th><th>Power budget</th></tr></thead>
+<tbody>
+<tr><td>Starter Rack</td><td>L1</td><td>free</td><td>12</td><td>2,000 W</td></tr>
+<tr><td>Small Datacenter</td><td>L10</td><td>0.5 SOL</td><td>24</td><td>5,000 W</td></tr>
+<tr><td>Medium Datacenter</td><td>L20</td><td>5 SOL</td><td>36</td><td>10,000 W</td></tr>
+<tr><td>Large Datacenter</td><td>L35</td><td>50 SOL</td><td>48</td><td>20,000 W</td></tr>
+<tr><td>Industrial Complex</td><td>L50</td><td>500 SOL</td><td>72</td><td>50,000 W</td></tr>
+</tbody>
+</table>
+<p>The gap between rigs is absurd. Here are the watt-efficiency leaders and the worst offenders, straight from the roster:</p>
+<table>
+<caption>Hash rate per watt — the extremes of the 48-rig roster</caption>
+<thead><tr><th>Rig</th><th>Tier</th><th>Hash rate</th><th>Power</th><th>H/s per watt</th><th>Fits in</th></tr></thead>
+<tbody>
+<tr><td>Solana Core</td><td><span class="tag legendary">Legendary</span></td><td>7,800,000</td><td>50,000 W</td><td>156.0</td><td>Industrial only</td></tr>
+<tr><td>AI Neural Validator</td><td><span class="tag legendary">Legendary</span></td><td>1,550,000</td><td>15,000 W</td><td>103.3</td><td>Large, Industrial</td></tr>
+<tr><td>RTX 4090 Validator</td><td><span class="tag legendary">Legendary</span></td><td>25,300</td><td>450 W</td><td>56.2</td><td>every room</td></tr>
+<tr><td>RTX 3090 Ti Validator</td><td><span class="tag epic">Epic</span></td><td>2,120</td><td>450 W</td><td>4.7</td><td>every room</td></tr>
+<tr><td>Solana Validator V2</td><td><span class="tag legendary">Legendary</span></td><td>6,800</td><td>2,520 W</td><td>2.7</td><td>Medium and up</td></tr>
+<tr><td>Basic Validator</td><td><span class="tag common">Common</span></td><td>0.01</td><td>50 W</td><td>0.0002</td><td>every room</td></tr>
+</tbody>
+</table>
+<p>Read that table as a warning about ASICs. The big industrial "Solana Validator" rigs buy hash rate per SOL at a good rate, but they burn an enormous amount of room budget doing it. In a <strong>Large Datacenter (20,000 W)</strong> you can fit either <strong>seven</strong> Solana Validator V2 (about 47,600 H/s) or <strong>forty-four</strong> RTX 4090 Validators (about 1,113,200 H/s) — the same room, <strong>23× the hash rate</strong>, because the GPUs are 20× more efficient per watt. Slots run out at 48, so the GPUs still fill the room.</p>
+<div class="callout"><strong>Rule of thumb.</strong> Below level 35 you are slot-limited: buy whatever gives the most H/s per SOL. From the Large Datacenter onward you are usually <em>power</em>-limited, and from then on a rig with a better H/s per watt beats a cheaper-per-hash rig. The <a href="calc.html">ROI calculator</a> models both columns plus your own room, and lets you recalibrate with the numbers you actually see in game.</div>
 
 <h2 id="xp">5. XP and the fastest way to level</h2>
 <p>There are three XP sources, all on the rack: <strong>buying</strong> a miner, <strong>placing</strong> it, and <strong>merging</strong>. Buying 25, placing 15, merging 20 gives roughly <strong>100 XP per pair</strong> of starter miners — which is why the whole leveling routine is: buy pairs of the cheapest miner, place both, merge them, repeat.</p>
@@ -162,7 +192,7 @@
 <tr><td>L150</td><td>Solana Core</td><td>7,800,000 H/s</td><td>500,000</td><td>15.6</td><td><span class="tag legendary">Legendary</span></td></tr>
 </tbody>
 </table>
-<p><strong>Also check watts, not just SOL.</strong> The mid-tier "Solana Validator" rigs are power hogs: the V2 draws 2,520 W for 6,800 H/s (~2.7 H/s per watt) while an RTX 3090 Ti draws 450 W for 2,120 H/s (~4.7). At the very top the ratio flips again — the Solana Core is both the most SOL-efficient and the most watt-efficient rig in the game. If your room's power capacity is the bottleneck, favour GPU rigs.</p>
+<p><strong>Also check watts, not just SOL.</strong> The two rankings disagree badly in the legendary tier — see <a href="#power">the energy ladder</a> above for the full table and the room-by-room consequences.</p>
 
 <h2 id="camp">7. Level 15: The Camp, classes and PvP</h2>
 <p>The Camp is a second game inside the game, and the reason most long-term players stay. You pick a character, spend its skill points (3 per level), and do two things with it:</p>
@@ -171,6 +201,16 @@
   <li><strong>PvP.</strong> Turn-based, offline: your character fights other players' characters automatically. Attack against defence, skills against skills, best gear wins — victory is essentially decided by stats and gear before the fight plays out. Seasons run roughly every two weeks and pay out the top of the ladder.</li>
 </ul>
 <p><strong>The honest caveats.</strong> Camp income used to be real SOL from gear sales; after the SSOL change, loot sells for SSOL — a fire sale at the time of writing. And the top of the ladder is not a fair fight: serious guilds coordinate win-trading and gear-swapping between accounts, and one player documented a single guild member holding ~26% of the traded supply of over 500 items. Compete for fun and for the season prizes, not as an income.</p>
+<h3>How the fights actually resolve (player-reported)</h3>
+<p>None of this is in the client — it comes from players who have run several seasons, so treat it as informed hearsay rather than a spec sheet:</p>
+<ul>
+  <li><strong>Damage first, then health.</strong> A fight is decided by total damage dealt, then by who has more HP left when the damage is totalled — not by who has the biggest power rating. That is why a lower-rated character can beat a higher-rated one, and why the ranking feels random until you learn the build.</li>
+  <li><strong>Luck drives crits.</strong> The working figure players quote is <strong>5 luck = 1% crit chance</strong>, with a base of roughly 35 luck on a fresh character. Reaching 50 luck for an extra 10% crit is a lot of levels, which is why gear does most of the work.</li>
+  <li><strong>Your build is locked for the season.</strong> One class, one stat spread, no respec until the season ends — and seasons run about two weeks (three for the current one). A bad choice costs you a whole season, so copy nothing blindly: nobody, including the people making videos, has enough seasons of data to know what is optimal.</li>
+  <li><strong>Skills stack on different turns.</strong> Openers like Light Hit (acts first, +10% crit) and Crit Stance (+35% crit bonus) look like they combine; they do not fire on the same turn. Build the rotation, not the stat sheet.</li>
+  <li><strong>Gear vocabulary</strong>, in the order it matters: <em>blueprints</em> add +1/+2/+3 levels to a piece, <em>recipes</em> raise its rarity, <em>scrolls</em> upgrade it, <em>fragments</em> are crafting material, and <em>enchanting</em> adds +1 per enchant. Rarity raises both the size of the bonuses and their roll chance, so a high-rarity base with bad rolls can be worse than a mid-rarity one with good rolls.</li>
+  <li><strong>Expedition upgrades do three separate things</strong>: raise gear drop chance, add extra expedition runs, and shorten expedition timers. Run short expeditions while you are awake and a long one overnight — downtime is the only thing you cannot buy back.</li>
+</ul>
 <div class="callout"><strong>Free-to-play priority:</strong> The Camp is the only path to good gear and meaningful currency that does not pass through the deposit button. Level 15 is the single biggest unlock in the game — get there before you spend anything.</div>
 
 <h2 id="guilds">8. Guilds, guild wars and mining pools</h2>
@@ -203,7 +243,8 @@
   <li><strong>The game's own estimate for a new free player:</strong> 0.01&ndash;0.05 SOL in the first week — single-digit dollars at current prices.</li>
   <li><strong>Paid progression, measured:</strong> ~20 SOL spent in the first three days produced roughly 1 SOL per month per 9 SOL invested early; mid-game that improved to about 1 SOL per month per 7 SOL invested.</li>
   <li><strong>The free tier, measured:</strong> "pennies per month" — the top earner's own words. Free play funds itself slowly; it does not pay you.</li>
-  <li><strong>Hashrate pays proportionally to your share of the whole network</strong>, which means per-rig earnings <em>fall</em> as the player base grows — the classic first-mover advantage. The recent bot purge cut flood traffic, but it also cut the paying population.</li>
+  <li><strong>The yield formula, from the client:</strong> pending earnings = <code>(your total hash rate / 10,000) &times; solPerHashrate &times; minutes since last claim</code>, with the minutes capped at 480 (8 hours). The shipped default is <code>solPerHashrate = 0.00000023</code> SOL per hash-rate unit per minute — that is roughly <strong>0.00033 SOL per day per H/s</strong> at three claims a day, and it is <em>linear</em>: double the hash rate, double the yield. The client fetches these constants from the server at startup, so live values can be different — the <a href="calc.html">calculator</a> has a calibration box for exactly this reason.</li>
+  <li><strong>Whether the rate dilutes as the player base grows is not in the client.</strong> Older player write-ups say per-rig income falls as more players join; the client's own accrual preview contains no network-share term. Both can be true if the server keeps adjusting the rate — so treat any "you will earn X per day" claim, including ours, as a snapshot that ages.</li>
   <li><strong>Deposits are not recoverable.</strong> Since the SSOL change, a deposit buys miners that mine back withdrawable SOL over months. That is the deal; read it before you pay.</li>
 </ul>
 <div class="callout"><strong>Verdict.</strong> SolFarmer is a well-made idle game with a real payout rail. As entertainment with a possible upside, fine. As an investment, the house odds are terrible and the "investors" are the product. Never deposit money you would not spend on a video game.</div>
@@ -220,14 +261,18 @@
 <h2 id="faq">13. FAQ</h2>
 <details><summary><strong>Is SolFarmer free to play?</strong></summary><p>Yes — free sign-up, free starter miner, no wallet needed. Free players earn pennies per month by design; the progression curve starts with the first deposit.</p></details>
 <details><summary><strong>What is the fastest way to level up?</strong></summary><p>Buy the cheapest miner, place it, merge pairs. Buying, placing and merging each grant XP (~100 XP per starter pair), and level costs scale linearly rather than exponentially.</p></details>
-<details><summary><strong>How does merging work?</strong></summary><p>Two identical miners at the same level become one of the next level; 16 level-1s become one level-5. Fee base 0.001 &times; ~1.8 per level, 80% success rate in the client.</p></details>
+<details><summary><strong>How does merging work?</strong></summary><p>Two identical miners at the same level become one of the next level; 16 level-1s become one level-5. Success rate ships as 80% in the client; the exact fee is quoted by the server in the confirmation dialog — read it, the fallback settings contain two different fee models.</p></details>
+<details><summary><strong>Why did my rigs stop earning overnight?</strong></summary><p>They did not stop — the pending-earnings window is capped at 8 hours by the client. Whatever accumulated past your last claim's 480 minutes is not counted. Claim two or three times a day and you collect everything; the daily check-in, chest and quests take care of the second visit anyway.</p></details>
+<details><summary><strong>Does SolFarmer charge electricity costs?</strong></summary><p>No. Watts are the power budget of the room a rig sits in (2,000 W in the starter rack, up to 50,000 W in the Industrial Complex). The client ships an <code>electricityCostPerWatt</code> constant but never charges it to your balance. Efficiency per watt matters because of <em>room capacity</em>, not because of a bill — see <a href="#power">the energy ladder</a>.</p></details>
+<details><summary><strong>Which rig should I buy first?</strong></summary><p>Whichever gives the most H/s per SOL at your level: 10.0 for every Common, 11.0&ndash;12.8 for Rare, 12.57&ndash;13.25 for Epic, up to 15.6 at the very top. The <a href="calc.html">ROI calculator</a> ranks all 48 and models your room's power budget.</p></details>
 <details><summary><strong>What is SSOL and can I withdraw it?</strong></summary><p>SSOL is the in-game currency added in November 2026. Deposits convert to SSOL one-way; SSOL cannot be withdrawn. Only mining and PvP season rewards produce withdrawable SOL.</p></details>
 <details><summary><strong>What is the minimum withdrawal?</strong></summary><p>0.1 SOL, on-chain, to a Solana wallet. Verify the address at the confirm step — it is the last point where a mistake is reversible.</p></details>
 <details><summary><strong>What unlocks at level 15?</strong></summary><p>The Camp: character classes, timed loot expeditions, and offline turn-based PvP with seasonal SOL prizes.</p></details>
 <details><summary><strong>Is SolFarmer a scam?</strong></summary><p>Not in the classic sense — withdrawals are real and on-chain. It is, however, a pay-to-win game whose economy was restructured in November 2026 so that deposits can no longer leave. Play it free first, deposit only what a game is worth to you, and expect to withdraw rarely.</p></details>
 
 <h2 id="sources">14. Sources and updates</h2>
-<p>Game data verified against SolFarmer's public client (roster of 48 rigs with prices, hashrates, power draws; economy constants: 3% market fee, 80% merge success, 0.001 base merge cost, 0.1 SOL withdrawal floor) — <a href="https://solfarmer.io">solfarmer.io</a>. Economy rationale: <a href="https://solfarmer.io/ssol-economy">the official SSOL economy page</a>. Earnings context: the game's <a href="https://solfarmer.io/blog/earn-free-solana-2026">official earnings blog post</a> and community coverage on <a href="https://www.reddit.com/r/solfarmer/">r/solfarmer</a>.</p>
+<p>Game data verified against SolFarmer's public client: the 48-rig roster (names, prices, hash rates, watt draws, unlock levels), the room roster (slots and watt ceilings), and the economy constants (3% market fee, 80% merge success, 0.00000023 SOL per H/s per minute default yield, 480-minute claim window, 0.1 SOL withdrawal floor) — <a href="https://solfarmer.io">solfarmer.io</a>. Economy rationale: <a href="https://solfarmer.io/ssol-economy">the official SSOL economy page</a>. Earnings context: the game's <a href="https://solfarmer.io/blog/earn-free-solana-2026">official earnings blog post</a> and community coverage on <a href="https://www.reddit.com/r/solfarmer/">r/solfarmer</a>.</p>
+<p>Section 7's combat notes are player-reported from video walkthroughs (a day-one player's full-game tour and a multi-season PvP deep dive) and are explicitly <em>not</em> client-verified. Anything marked "in the game files" above is.</p>
 <p>Independent, unofficial guide. Not affiliated with, endorsed by, or sponsored by SolFarmer. Last updated November 2026; the game ships frequent updates — verify in-game numbers before spending.</p>
 
 <p class="cta-row"><a class="cta" href="https://solfarmer.io/auth?ref=E62B37FF">Start free with code E62B37FF pre-filled &rarr;</a></p>
