@@ -30,7 +30,7 @@ body::before{
 main,header.site-head{position:relative; z-index:1}
 main{max-width:780px; margin:0 auto; padding:0 20px 84px}
 header.site-head{
-  max-width:780px; margin:0 auto; padding:14px 20px 12px;
+  max-width:740px; margin:0 auto; padding:14px 0 12px;
   display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
   position:sticky; top:0; z-index:50;
   background:rgba(10,14,20,.85); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
@@ -43,6 +43,7 @@ header.site-head nav a{
   padding:7px 12px; border-radius:9px; transition:.15s;
 }
 header.site-head nav a:hover{color:var(--txt); background:#ffffff0d; text-decoration:none}
+header.site-head nav a[aria-current]{color:var(--txt); background:#ffffff0f; box-shadow:inset 0 -2px 0 var(--accent)}
 
 article{
   background:linear-gradient(180deg,#141b2b 0%,#111725 100%);
@@ -92,11 +93,10 @@ em{color:var(--dim)}
   color:var(--code); letter-spacing:3px; text-shadow:0 0 24px #5df29b55;
 }
 .copy{
-  background:linear-gradient(135deg,var(--accent),#2f9fe0); border:0; color:#04101d; font-weight:800; font-size:15px;
-  padding:12px 22px; border-radius:10px; cursor:pointer; transition:.15s;
-  box-shadow:0 6px 18px -8px #39c8ff99;
+  background:#39c8ff12; border:1px solid #39c8ff59; color:var(--accent); font-weight:700; font-size:14.5px;
+  padding:11px 20px; border-radius:10px; cursor:pointer; transition:.15s; letter-spacing:.3px;
 }
-.copy:hover{filter:brightness(1.12); transform:translateY(-1px)}
+.copy:hover{background:#39c8ff22; border-color:var(--accent); color:#9fe8ff; transform:translateY(-1px)}
 .copy:active{transform:translateY(0)}
 
 .cta{
