@@ -145,8 +145,13 @@ table.roster th:nth-child(3),table.roster td:nth-child(3){padding-right:18px}
 .scroll table{min-width:0}
 table{
   width:100%; border-collapse:separate; border-spacing:0; margin:18px 0; font-size:15px;
-  border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  border:1px solid var(--line); border-radius:12px;
 }
+/* niente overflow:hidden sul table: creerebbe uno scroll-container e spezzerebbe i thead sticky */
+thead th:first-child{border-top-left-radius:11px}
+thead th:last-child{border-top-right-radius:11px}
+tbody:last-child tr:last-child td:first-child{border-bottom-left-radius:11px}
+tbody:last-child tr:last-child td:last-child{border-bottom-right-radius:11px}
 caption{caption-side:top; text-align:left; font-size:13.5px; color:var(--dim); padding:0 2px 8px}
 th,td{padding:11px 13px; text-align:left; vertical-align:top; border-bottom:1px solid #1b2536}
 th{
@@ -161,8 +166,8 @@ tbody tr:nth-child(even){background:#121a2a}
 tbody tr:hover{background:#1a2438}
 tbody tr:last-child td{border-bottom:0}
 td:first-child{white-space:nowrap}
-tr.best td{background:linear-gradient(90deg,#0f3d2a,#0c2a1f) !important; box-shadow:inset 3px 0 0 var(--code)}
-tr.best td:first-child{color:#b8f5d2; font-weight:800}
+tr.best{background:linear-gradient(90deg,#0f3d2a,#0c2a1f)}
+tr.best td:first-child{color:#b8f5d2; font-weight:800; box-shadow:inset 3px 0 0 var(--code)}
 tr.best td:last-child{color:#b8f5d2; font-weight:800}
 
 .callout{
