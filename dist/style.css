@@ -239,3 +239,19 @@ p code,li code,td code{
 .banner img{width:min(672px,100%); height:auto; display:block; margin:0 auto; border-radius:9px;
   image-rendering:pixelated}
 .banner-note{margin:0 0 4px; font-size:13.5px; color:#a9b8cd}
+
+/* CTA calcolatore: sempre visibile nella nav sticky (desktop e mobile) */
+.nav-cta{background:linear-gradient(135deg,#39c8ff,#2f9fe0); color:#04101d !important; font-weight:800;
+  border-radius:9px; padding:7px 12px !important; box-shadow:0 6px 18px -8px #39c8ffcc}
+.nav-cta:hover{filter:brightness(1.08); text-decoration:none}
+.nav-cta.on{background:linear-gradient(135deg,#39c8ff,#7a6cff)}
+
+/* striscia strumento: primo scroll, sopra il blocco referral */
+.tool{margin:22px 0 8px}
+.tool a{display:block; padding:16px 18px; border:1px solid #39c8ff59; border-radius:14px;
+  background:linear-gradient(135deg,#0d2334,#0b1a28); text-decoration:none}
+.tool a:hover{border-color:var(--accent); background:linear-gradient(135deg,#103048,#0d2130)}
+.tool-k{display:block; font-size:11px; text-transform:uppercase; letter-spacing:1.4px; color:var(--accent); margin-bottom:6px}
+.tool a strong{display:block; font-size:17.5px; color:#eaf3ff}
+.tool-s{display:block; margin-top:5px; font-size:13.5px; color:#a9b8cd}
+@media (max-width:520px){ .nav-cta{padding:6px 9px !important; font-size:13px} .tool a{padding:14px 15px} }

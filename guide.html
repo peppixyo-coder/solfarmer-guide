@@ -42,7 +42,7 @@
 <body>
 <header class="site-head">
   <a class="brand" href="./">SolFarmer<span>Guide</span></a>
-  <nav><a href="./">Start here</a><a href="guide.html" aria-current="page">Beginner guide</a><a href="calc.html">ROI calculator</a></nav>
+  <nav><a href="./">Start here</a><a href="guide.html" aria-current="page">Beginner guide</a><a class="nav-cta" href="calc.html">ROI calculator</a></nav>
 </header>
 
 <main>
@@ -81,8 +81,10 @@
 </ol>
 </nav>
 
+<div class="tool"><a href="calc.html"><span class="tool-k">Free tool</span><strong>Check any rig before you buy &mdash; ROI calculator &rarr;</strong><span class="tool-s">48 rigs, H/s per SOL, H/s per watt, days to break even, room fit.</span></a></div>
+
 <h2 id="what">1. What SolFarmer actually is</h2>
-<p>A browser game — no download, no wallet needed to start. You sign up, receive a free Basic Validator, place it in an underground cavern, and it mines a share of a SOL pool whether the tab is open or not. Around that core: a shop of <strong>48 collectible rigs</strong> in four rarity tiers (Common, Rare, Epic, Legendary), a merge system, a story campaign in chapters, daily quests, a daily lucky chest, an arcade of 8 mini-games, guild wars, mining pools, a player market, and a separate expedition-and-PvP layer called the Camp.</p>
+<p>A browser game — no download, no wallet needed to start. You sign up, receive a free Basic Validator, place it in an underground cavern, and it mines a share of a SOL pool whether the tab is open or not. Around that core: a shop of <strong>48 collectible rigs</strong> in four rarity tiers (Common, Rare, Epic, Legendary), a merge system, a story campaign in chapters, daily quests, a daily lucky chest, an arcade of 12 mini-games, guild wars, mining pools, a player market, and a separate expedition-and-PvP layer called the Camp.</p>
 <p>It pays out in real SOL, on-chain, verifiable on Solscan. <strong>That part is not a scam.</strong> The part that hurts people is that the game is pay-to-win by design and the whole economy is built around it — every SOL you deposit converts into a non-withdrawable internal currency. Treat it as a game you might spend money on, not as an income.</p>
 <div class="callout"><strong>The one-sentence version.</strong> SolFarmer is "Cookie Clicker with real money": a genuinely charming idle game wrapped around a real-SOL payout system that runs, in part, on other players' deposits.</div>
 
@@ -170,7 +172,7 @@
 <p>The trick nobody writes down, and it follows straight from the three XP sources above. Every buy, every place and every merge pays XP again &mdash; so a miner you cycle through the shop earns you experience three times over, while most of the money comes back to you.</p>
 <p>The loop, as players run it: list a mid-level rig (a level-5 is the usual choice, since 16 starters went into it and it still has buyers), sell it, then spend the proceeds on the cheapest rigs the shop has. Place each one, merge them back up. Same money, same final hashrate, roughly ten times the transaction count &mdash; which at ~100 XP per starter pair is where the levels come from when the passive drip has stalled.</p>
 <ul>
-  <li><strong>What it costs you:</strong> the 3% marketplace fee, whatever spread the sale takes, and the merge failures (~1 in 5).</li>
+  <li><strong>What it costs you:</strong> the 5% marketplace fee, whatever spread the sale takes, and the merge failures (~1 in 5).</li>
   <li><strong>What it pays you:</strong> XP, and XP only. It creates no hashrate and no SOL.</li>
   <li><strong>Player-reported,</strong> not in the client: the community figure doing the rounds is 700+ XP inside two minutes for one cycle. The mechanics are verified against the client; the rate is somebody's stopwatch.</li>
 </ul>
@@ -267,7 +269,7 @@
 </ul>
 
 <h2 id="market">9. The player marketplace</h2>
-<p>Miners and Camp gear trade between players. The platform takes a <strong>3% fee</strong> on sales and allows listing prices from 0.0001 to 100 SOL (in the game files). Two things to know before you list:</p>
+<p>Miners and Camp gear trade between players. The platform takes a <strong>5% fee</strong> on sales &mdash; the market screen reads it live from the server (<code>fee_pct</code>, default 5), so the old <code>marketFeePercentage: 3</code> constant still sitting in the bundle is stale &mdash; and allows listing prices from 0.0001 to 100 SOL (in the game files). Some listings also carry a separate liquidity fee charged up front, refunded if you cancel. Two things to know before you list:</p>
 <ol>
   <li><strong>Prices are player-set and manipulated.</strong> Low-volume items are easy to corner — documented cases include one account controlling ~26% of a 500+ item supply to set the price. Check recent sale history, not just the cheapest listing, before buying anything expensive.</li>
   <li><strong>Sales pay SSOL now.</strong> Before the SSOL change a sale returned withdrawable SOL; today it returns in-game currency. The market is where you convert duplicate rigs into useful ones — not where you cash out.</li>
@@ -296,7 +298,7 @@
   <li><strong>Deposits are not recoverable.</strong> Since the SSOL change, a deposit buys miners that mine back withdrawable SOL over months. That is the deal; read it before you pay.</li>
 </ul>
 <h3 id="arcade">The arcade prize pool, in perspective</h3>
-<p>The arcade advertises <em>daily SSOL prizes</em> across 8 mini-games, one play each. Here is the arithmetic that makes it a toy rather than an income: the whole daily pot is a few hundredths of SSOL &mdash; player screenshots of the leaderboard put it near <strong>0.02 SSOL</strong>, with first place taking 30% of that, i.e. well under a cent. And the winning scores are not human: the top of the board runs into tens of thousands of points a day, which is scripted play, not a good afternoon.</p>
+<p>The arcade advertises <em>daily SSOL prizes</em> across <strong>12</strong> mini-games, one play each: Mine Digger, Hash Slots, Crypto Snake, Block Breaker, Crypto Runner, Hash Clicker, Memory Match, Hash Puzzle, Solar Forge Tap, Hash Stacker, Crypto Sweeper and Pickaxe Precision (the list is in the client's minigames module; the landing page still advertises the 8 of last season). Here is the arithmetic that makes it a toy rather than an income: the whole daily pot is a few hundredths of SSOL &mdash; player screenshots of the leaderboard put it near <strong>0.02 SSOL</strong>, with first place taking 30% of that, i.e. well under a cent. And the winning scores are not human: the top of the board runs into tens of thousands of points a day, which is scripted play, not a good afternoon.</p>
 <p><em>Player-reported:</em> the pot size and the leading scores come from community screenshots in November 2026, not from the client. The shipped code confirms only the structure &mdash; one play per game per day, a daily pool, a leaderboard cut. Treat both numbers as a snapshot.</p>
 <p>Play the arcade for the daily quest credit and five minutes of fun. Anyone presenting it as a revenue stream is describing their own bot.</p>
 <div class="callout"><strong>Verdict.</strong> SolFarmer is a well-made idle game with a real payout rail. As entertainment with a possible upside, fine. As an investment, the house odds are terrible and the "investors" are the product. Never deposit money you would not spend on a video game.</div>
@@ -323,7 +325,7 @@
 <details><summary><strong>Is SolFarmer a scam?</strong></summary><p>Not in the classic sense — withdrawals are real and on-chain. It is, however, a pay-to-win game whose economy was restructured in September 2026 so that deposits can no longer leave. Play it free first, deposit only what a game is worth to you, and expect to withdraw rarely.</p></details>
 
 <h2 id="sources">14. Sources and updates</h2>
-<p>Game data verified against SolFarmer's public client: the 48-rig roster (names, prices, hash rates, watt draws, unlock levels), the room roster (slots and watt ceilings), and the economy constants (3% market fee, 80% merge success, 0.00000023 SOL per H/s per minute default yield, 480-minute claim window, 0.1 SOL withdrawal floor) — <a href="https://solfarmer.io">solfarmer.io</a>. Economy rationale: <a href="https://solfarmer.io/ssol-economy">the official SSOL economy page</a>. Earnings context: the game's <a href="https://solfarmer.io/blog/earn-free-solana-2026">official earnings blog post</a> and community coverage on <a href="https://www.reddit.com/r/solfarmer/">r/solfarmer</a>.</p>
+<p>Game data verified against SolFarmer's public client: the 48-rig roster (names, prices, hash rates, watt draws, unlock levels), the room roster (slots and watt ceilings), and the economy constants (5% market fee as read live by the market screen; the client's stale default says 3%, 80% merge success, 0.00000023 SOL per H/s per minute default yield, 480-minute claim window, 0.1 SOL withdrawal floor) — <a href="https://solfarmer.io">solfarmer.io</a>. Economy rationale: <a href="https://solfarmer.io/ssol-economy">the official SSOL economy page</a>. Earnings context: the game's <a href="https://solfarmer.io/blog/earn-free-solana-2026">official earnings blog post</a> and community coverage on <a href="https://www.reddit.com/r/solfarmer/">r/solfarmer</a>.</p>
 <p>Section 7's combat notes are player-reported from video walkthroughs (a day-one player's full-game tour and a multi-season PvP deep dive) and are explicitly <em>not</em> client-verified. Anything marked "in the game files" above is.</p>
 <p>Independent, unofficial guide. Not affiliated with, endorsed by, or sponsored by SolFarmer. Last updated November 2026; the game ships frequent updates — verify in-game numbers before spending.</p>
 
