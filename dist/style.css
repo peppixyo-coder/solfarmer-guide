@@ -115,6 +115,9 @@ em{color:var(--dim)}
 .cta-ghost:hover{border-color:var(--accent); color:#fff; text-decoration:none; background:#ffffff0f}
 .cta-row{margin-top:34px; display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 
+.scroll{overflow-x:auto; border-radius:12px}
+.scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+.scroll table{min-width:640px}
 table{
   width:100%; border-collapse:separate; border-spacing:0; margin:18px 0; font-size:15px;
   border:1px solid var(--line); border-radius:12px; overflow:hidden;

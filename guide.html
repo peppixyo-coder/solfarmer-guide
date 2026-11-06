@@ -32,7 +32,7 @@
     {"@type": "Question", "name": "Is SolFarmer free to play?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Sign-up is free, you get a starter miner immediately and no wallet is needed to play. Free players earn pennies per month by design; the real curve starts with the first deposit."}},
     {"@type": "Question", "name": "What is the fastest way to level up in SolFarmer?", "acceptedAnswer": {"@type": "Answer", "text": "Buy the cheapest miner, place it, and merge pairs. Buying, placing and merging each award XP, about 100 XP per pair of starter miners. Level requirements scale linearly."}},
     {"@type": "Question", "name": "How does the miner merge system work?", "acceptedAnswer": {"@type": "Answer", "text": "Two identical miners at the same level merge into one at the next level: 16 level-1 miners become one level-5 miner. The fee scales with the miner and the success rate is 80%."}},
-    {"@type": "Question", "name": "What is SSOL and can I withdraw it?", "acceptedAnswer": {"@type": "Answer", "text": "SSOL is the in-game currency added in November 2026. Deposited SOL converts to SSOL and cannot be withdrawn or converted back. Only mining and PvP season rewards produce withdrawable SOL."}},
+    {"@type": "Question", "name": "What is SSOL and can I withdraw it?", "acceptedAnswer": {"@type": "Answer", "text": "SSOL is the in-game currency SolFarmer added in late August 2026. Deposited SOL converts to SSOL and cannot be withdrawn or converted back. Only mining and PvP season rewards produce withdrawable SOL."}},
     {"@type": "Question", "name": "What is the minimum SolFarmer withdrawal?", "acceptedAnswer": {"@type": "Answer", "text": "0.1 SOL, on-chain and visible on Solscan. You need a Solana wallet such as Phantom or Solflare to receive it."}},
     {"@type": "Question", "name": "What unlocks at level 15 in SolFarmer?", "acceptedAnswer": {"@type": "Answer", "text": "The Camp: pick a character class, run luck-based loot expeditions, and fight offline turn-based PvP for seasonal SOL prizes."}}
   ]
@@ -64,7 +64,7 @@
 <strong>Contents</strong>
 <ol>
 <li><a href="#what">What SolFarmer actually is</a></li>
-<li><a href="#currencies">SOL vs SSOL — the November 2026 economy change</a></li>
+<li><a href="#currencies">SOL vs SSOL — the September 2026 economy change</a></li>
 <li><a href="#dailies">The free daily loop, in order</a></li>
 <li><a href="#racks">Rack slots, power and merging</a></li>
 <li><a href="#power">The energy ladder: watts, rooms, H/s per W</a></li>
@@ -87,12 +87,12 @@
 <div class="callout"><strong>The one-sentence version.</strong> SolFarmer is "Cookie Clicker with real money": a genuinely charming idle game wrapped around a real-SOL payout system that runs, in part, on other players' deposits.</div>
 
 <h2 id="currencies">2. SOL vs SSOL — the economy change nobody saw coming</h2>
-<p>In November 2026 SolFarmer added a second currency, <strong>SSOL</strong>, and it changed everything about how a new player should approach the game. <a href="https://solfarmer.io/ssol-economy">The official explanation</a> says SSOL exists to deter bots, push players toward mining, keep market prices stable, and enable automated withdrawals. The player-side reality is simpler and harsher:</p>
+<p>In late August 2026 SolFarmer added a second currency, <strong>SSOL</strong>, and it changed everything about how a new player should approach the game. <a href="https://solfarmer.io/ssol-economy">The official explanation</a> says SSOL exists to deter bots, push players toward mining, keep market prices stable, and enable automated withdrawals. The change shipped without any advance notice: a long-running community write-up documented it on <a href="https://www.reddit.com/r/solfarmer/comments/1w6dter/for_everyone_looking_to_start_part_3/">3 September 2026</a>, stating the currency had landed three days earlier. The player-side reality is simpler and harsher:</p>
 <ul>
   <li><strong>Deposited SOL converts to SSOL</strong>, and SSOL <em>cannot be withdrawn</em> or converted back into SOL. The conversion is one-way, in steps as small as 0.001 SOL (in the game files).</li>
   <li><strong>The only withdrawable SOL now comes from mining and PvP season rewards.</strong> Quests, lucky chests, arcade prizes and marketplace sales are paid in SSOL — even where the marketing copy still says "real SOL".</li>
   <li>Before the change, market sales paid out real SOL. Players who focused on the Camp and trading full-time found their bankroll locked: the only way back out is buying miners and mining it out — <strong>8&ndash;9 months</strong> by player estimates.</li>
-  <li>The change landed with about three days of notice. The official documentation used to read that assets may be withdrawn at any time.</li>
+  <li>The change shipped with no advance communication. The official documentation used to read that assets may be withdrawn at any time.</li>
 </ul>
 <p><strong>Decide before your first deposit:</strong> deposited SOL is spent money, not an investment you can pull back out. Mine with it, play with it, never count on seeing it again in SOL form. The mining itself still pays real, withdrawable SOL — that part did not change.</p>
 <table>
@@ -168,30 +168,66 @@
 </ol>
 <p>Leveling itself is not the point — <strong>hashrate is</strong>. Every level is only worth what it unlocks: a cheaper slot per unit of hashrate, or the next rung of the buy ladder below.</p>
 <h2 id="shop">6. What to buy: the hashrate-per-SOL ladder</h2>
-<p>This is the part most guides hand-wave. We parsed the game's own roster of 48 rigs and divided hashrate by price. The result is cleaner than the shop screen suggests, and it is the single most useful table in this guide.</p>
+<p>This is the part most guides hand-wave. Below is the <strong>complete shop roster — all 48 rigs</strong>, taken from the game's own data, with hash rate divided by price and by watt draw. The result is cleaner than the shop screen suggests, and it is the single most useful table in this guide.</p>
 <ul>
   <li><strong>Every Common rig has exactly the same efficiency: 10 H/s per SOL.</strong> Within the common tier, buy whatever fits your budget — efficiency is identical, only size differs.</li>
   <li><strong>Efficiency climbs with tier</strong>: Rare 11.0&ndash;12.8, Epic 12.57&ndash;13.25, Legendary 13.2&ndash;15.6. The shop charges a premium for the privilege, but bigger rigs are strictly more SOL-efficient, so the endgame favours legendary purchases.</li>
   <li><strong>One trap:</strong> the RTX 3070 (level 25, epic) returns <em>less</em> hash rate per SOL than the RTX 3060 Ti (level 24, rare) it sits above — 12.57 vs 12.80. It is the only rig whose efficiency dips below the rung beneath it.</li>
 </ul>
-<table>
-<caption>Efficiency ladder — hash rate per SOL spent (from the game's roster)</caption>
-<thead><tr><th>Unlock</th><th>Miner</th><th>Hashrate</th><th>Price</th><th>H/s per SOL</th><th><span class="tag rare">Rare</span>/<span class="tag epic">Epic</span>/<span class="tag legendary">Legendary</span></th></tr></thead>
+<div class="scroll"><table class="roster">
+<caption>All 48 shop rigs, sorted by unlock level. The green row in each tier is that tier&#39;s best hash-rate per SOL.</caption>
+<thead><tr><th>Tier</th><th>Miner</th><th>Unlock</th><th>Price (SOL)</th><th>Hashrate (H/s)</th><th>Power (W)</th><th>H/s per SOL</th><th>H/s per W</th></tr></thead>
 <tbody>
-<tr><td>L1</td><td>Basic Validator</td><td>0.01 H/s</td><td>0.001</td><td>10.0</td><td><span class="tag common">Common</span></td></tr>
-<tr><td>L11</td><td>RX 580 Validator</td><td>5.5 H/s</td><td>0.5</td><td>11.0</td><td><span class="tag rare">Rare</span></td></tr>
-<tr><td>L15</td><td>RTX 2060 Validator</td><td>24 H/s</td><td>2</td><td>12.0</td><td><span class="tag rare">Rare</span></td></tr>
-<tr><td>L20</td><td>RTX 2080 Ti Validator</td><td>100 H/s</td><td>8</td><td>12.5</td><td><span class="tag rare">Rare</span></td></tr>
-<tr><td>L24</td><td>RTX 3060 Ti Node</td><td>160 H/s</td><td>12.5</td><td>12.8</td><td><span class="tag rare">Rare</span></td></tr>
-<tr><td>L25</td><td>RTX 3070 Validator</td><td>220 H/s</td><td>17.5</td><td>12.57</td><td><span class="tag epic">Epic</span></td></tr>
-<tr><td>L32</td><td>RTX 3080 Ti Validator</td><td>710 H/s</td><td>55</td><td>12.91</td><td><span class="tag epic">Epic</span></td></tr>
-<tr><td>L40</td><td>RTX 3090 Ti Validator</td><td>2,120 H/s</td><td>160</td><td>13.25</td><td><span class="tag epic">Epic</span></td></tr>
-<tr><td>L42</td><td>RTX 4070 Ti Node</td><td>4,700 H/s</td><td>350</td><td>13.43</td><td><span class="tag legendary">Legendary</span></td></tr>
-<tr><td>L52</td><td>RTX 4090 Validator</td><td>25,300 H/s</td><td>1,800</td><td>14.06</td><td><span class="tag legendary">Legendary</span></td></tr>
-<tr><td>L90</td><td>Fusion Validator</td><td>770,000 H/s</td><td>50,000</td><td>15.4</td><td><span class="tag legendary">Legendary</span></td></tr>
-<tr><td>L150</td><td>Solana Core</td><td>7,800,000 H/s</td><td>500,000</td><td>15.6</td><td><span class="tag legendary">Legendary</span></td></tr>
+<tr class="best"><td><span class="tag common">Common</span></td><td>Basic Validator</td><td>L1</td><td>0.001</td><td>0.01</td><td>50</td><td>10.00</td><td>0.0002</td></tr>
+<tr><td><span class="tag common">Common</span></td><td>Nano Validator</td><td>L1</td><td>0.005</td><td>0.05</td><td>20</td><td>10.00</td><td>0.0025</td></tr>
+<tr><td><span class="tag common">Common</span></td><td>Budget Staker</td><td>L2</td><td>0.02</td><td>0.2</td><td>150</td><td>10.00</td><td>0.00133</td></tr>
+<tr><td><span class="tag common">Common</span></td><td>Dual Node</td><td>L3</td><td>0.05</td><td>0.5</td><td>200</td><td>10.00</td><td>0.0025</td></tr>
+<tr><td><span class="tag common">Common</span></td><td>Pi Validator Cluster</td><td>L4</td><td>0.08</td><td>0.8</td><td>80</td><td>10.00</td><td>0.01</td></tr>
+<tr><td><span class="tag common">Common</span></td><td>GTX Validator</td><td>L5</td><td>0.12</td><td>1.2</td><td>120</td><td>10.00</td><td>0.01</td></tr>
+<tr><td><span class="tag common">Common</span></td><td>RX Staker</td><td>L6</td><td>0.15</td><td>1.5</td><td>140</td><td>10.00</td><td>0.0107</td></tr>
+<tr><td><span class="tag common">Common</span></td><td>Quad Validator Server</td><td>L7</td><td>0.2</td><td>2</td><td>400</td><td>10.00</td><td>0.005</td></tr>
+<tr><td><span class="tag common">Common</span></td><td>GTX Pro Validator</td><td>L8</td><td>0.25</td><td>2.5</td><td>150</td><td>10.00</td><td>0.0167</td></tr>
+<tr><td><span class="tag common">Common</span></td><td>12-Node Motherboard</td><td>L10</td><td>0.35</td><td>3.5</td><td>200</td><td>10.00</td><td>0.0175</td></tr>
+<tr><td><span class="tag rare">Rare</span></td><td>RX 580 Validator</td><td>L11</td><td>0.5</td><td>5.5</td><td>180</td><td>11.00</td><td>0.0306</td></tr>
+<tr><td><span class="tag rare">Rare</span></td><td>GTX 1080 Node</td><td>L12</td><td>0.75</td><td>8.5</td><td>180</td><td>11.33</td><td>0.0472</td></tr>
+<tr><td><span class="tag rare">Rare</span></td><td>Vega Validator</td><td>L13</td><td>1</td><td>11.5</td><td>210</td><td>11.50</td><td>0.0548</td></tr>
+<tr><td><span class="tag rare">Rare</span></td><td>GTX 1080 Ti Node</td><td>L14</td><td>1.5</td><td>17.5</td><td>250</td><td>11.67</td><td>0.07</td></tr>
+<tr><td><span class="tag rare">Rare</span></td><td>RTX 2060 Validator</td><td>L15</td><td>2</td><td>24</td><td>160</td><td>12.00</td><td>0.15</td></tr>
+<tr><td><span class="tag rare">Rare</span></td><td>Vega Pro Node</td><td>L16</td><td>2.5</td><td>30</td><td>295</td><td>12.00</td><td>0.102</td></tr>
+<tr><td><span class="tag rare">Rare</span></td><td>RTX 2070 Node</td><td>L17</td><td>3.5</td><td>42.5</td><td>175</td><td>12.14</td><td>0.243</td></tr>
+<tr><td><span class="tag rare">Rare</span></td><td>Radeon VII Validator</td><td>L18</td><td>4.5</td><td>55</td><td>300</td><td>12.22</td><td>0.183</td></tr>
+<tr><td><span class="tag rare">Rare</span></td><td>RTX 2080 Node</td><td>L19</td><td>6</td><td>74</td><td>215</td><td>12.33</td><td>0.344</td></tr>
+<tr><td><span class="tag rare">Rare</span></td><td>RTX 2080 Ti Validator</td><td>L20</td><td>8</td><td>100</td><td>260</td><td>12.50</td><td>0.385</td></tr>
+<tr><td><span class="tag rare">Rare</span></td><td>RX 5700 XT Node</td><td>L22</td><td>10</td><td>125</td><td>225</td><td>12.50</td><td>0.556</td></tr>
+<tr class="best"><td><span class="tag rare">Rare</span></td><td>RTX 3060 Ti Node</td><td>L24</td><td>12.5</td><td>160</td><td>200</td><td>12.80</td><td>0.8</td></tr>
+<tr><td><span class="tag epic">Epic</span></td><td>RTX 3070 Validator</td><td>L25</td><td>17.5</td><td>220</td><td>220</td><td>12.57</td><td>1</td></tr>
+<tr><td><span class="tag epic">Epic</span></td><td>RX 6700 XT Node</td><td>L26</td><td>22.5</td><td>285</td><td>230</td><td>12.67</td><td>1.24</td></tr>
+<tr><td><span class="tag epic">Epic</span></td><td>RTX 3080 Validator</td><td>L28</td><td>30</td><td>380</td><td>320</td><td>12.67</td><td>1.19</td></tr>
+<tr><td><span class="tag epic">Epic</span></td><td>RX 6800 Node</td><td>L30</td><td>40</td><td>510</td><td>250</td><td>12.75</td><td>2.04</td></tr>
+<tr><td><span class="tag epic">Epic</span></td><td>RTX 3080 Ti Validator</td><td>L32</td><td>55</td><td>710</td><td>350</td><td>12.91</td><td>2.03</td></tr>
+<tr><td><span class="tag epic">Epic</span></td><td>RX 6800 XT Node</td><td>L34</td><td>70</td><td>910</td><td>300</td><td>13.00</td><td>3.03</td></tr>
+<tr><td><span class="tag epic">Epic</span></td><td>RTX 3090 Validator</td><td>L36</td><td>90</td><td>1,180</td><td>350</td><td>13.11</td><td>3.37</td></tr>
+<tr><td><span class="tag epic">Epic</span></td><td>RX 6900 XT Node</td><td>L38</td><td>120</td><td>1,580</td><td>300</td><td>13.17</td><td>5.27</td></tr>
+<tr class="best"><td><span class="tag epic">Epic</span></td><td>RTX 3090 Ti Validator</td><td>L40</td><td>160</td><td>2,120</td><td>450</td><td>13.25</td><td>4.71</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>Solana Validator V1</td><td>L40</td><td>250</td><td>3,300</td><td>1,350</td><td>13.20</td><td>2.44</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>RTX 4070 Ti Node</td><td>L42</td><td>350</td><td>4,700</td><td>285</td><td>13.43</td><td>16.5</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>Solana Validator V2</td><td>L44</td><td>500</td><td>6,800</td><td>2,520</td><td>13.60</td><td>2.7</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>RTX 4080 Validator</td><td>L46</td><td>700</td><td>9,600</td><td>320</td><td>13.71</td><td>30</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>RX 7900 XTX Node</td><td>L48</td><td>950</td><td>13,200</td><td>355</td><td>13.89</td><td>37.2</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>Solana Validator Pro</td><td>L50</td><td>1,300</td><td>18,200</td><td>3,250</td><td>14.00</td><td>5.6</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>RTX 4090 Validator</td><td>L52</td><td>1,800</td><td>25,300</td><td>450</td><td>14.06</td><td>56.2</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>Solana Farm Standard</td><td>L55</td><td>2,500</td><td>35,500</td><td>3,250</td><td>14.20</td><td>10.9</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>Solana Validator XP</td><td>L58</td><td>3,500</td><td>50,000</td><td>3,010</td><td>14.29</td><td>16.6</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>SolFarm Industrial</td><td>L60</td><td>5,000</td><td>72,000</td><td>3,344</td><td>14.40</td><td>21.5</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>SolNode Elite</td><td>L65</td><td>7,000</td><td>102,000</td><td>3,050</td><td>14.57</td><td>33.4</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>SolFarm M50</td><td>L70</td><td>10,000</td><td>147,000</td><td>3,306</td><td>14.70</td><td>44.5</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>Avalon SolNode</td><td>L75</td><td>15,000</td><td>225,000</td><td>3,420</td><td>15.00</td><td>65.8</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>Quantum Validator α</td><td>L80</td><td>25,000</td><td>375,000</td><td>5,000</td><td>15.00</td><td>75</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>Fusion Validator</td><td>L90</td><td>50,000</td><td>770,000</td><td>10,000</td><td>15.40</td><td>77</td></tr>
+<tr><td><span class="tag legendary">Legendary</span></td><td>AI Neural Validator</td><td>L100</td><td>100,000</td><td>1,550,000</td><td>15,000</td><td>15.50</td><td>103</td></tr>
+<tr class="best"><td><span class="tag legendary">Legendary</span></td><td>Solana Core</td><td>L150</td><td>500,000</td><td>7,800,000</td><td>50,000</td><td>15.60</td><td>156</td></tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>Also check watts, not just SOL.</strong> The two rankings disagree badly in the legendary tier — see <a href="#power">the energy ladder</a> above for the full table and the room-by-room consequences.</p>
 
 <h2 id="camp">7. Level 15: The Camp, classes and PvP</h2>
@@ -225,7 +261,7 @@
 <p>Miners and Camp gear trade between players. The platform takes a <strong>3% fee</strong> on sales and allows listing prices from 0.0001 to 100 SOL (in the game files). Two things to know before you list:</p>
 <ol>
   <li><strong>Prices are player-set and manipulated.</strong> Low-volume items are easy to corner — documented cases include one account controlling ~26% of a 500+ item supply to set the price. Check recent sale history, not just the cheapest listing, before buying anything expensive.</li>
-  <li><strong>Sales pay SSOL now.</strong> Before November 2026 a sale returned withdrawable SOL; today it returns in-game currency. The market is where you convert duplicate rigs into useful ones — not where you cash out.</li>
+  <li><strong>Sales pay SSOL now.</strong> Before the SSOL change a sale returned withdrawable SOL; today it returns in-game currency. The market is where you convert duplicate rigs into useful ones — not where you cash out.</li>
 </ol>
 
 <h2 id="withdraw">10. Withdrawing your SOL, step by step</h2>
@@ -265,10 +301,10 @@
 <details><summary><strong>Why did my rigs stop earning overnight?</strong></summary><p>They did not stop — the pending-earnings window is capped at 8 hours by the client. Whatever accumulated past your last claim's 480 minutes is not counted. Claim two or three times a day and you collect everything; the daily check-in, chest and quests take care of the second visit anyway.</p></details>
 <details><summary><strong>Does SolFarmer charge electricity costs?</strong></summary><p>No. Watts are the power budget of the room a rig sits in (2,000 W in the starter rack, up to 50,000 W in the Industrial Complex). The client ships an <code>electricityCostPerWatt</code> constant but never charges it to your balance. Efficiency per watt matters because of <em>room capacity</em>, not because of a bill — see <a href="#power">the energy ladder</a>.</p></details>
 <details><summary><strong>Which rig should I buy first?</strong></summary><p>Whichever gives the most H/s per SOL at your level: 10.0 for every Common, 11.0&ndash;12.8 for Rare, 12.57&ndash;13.25 for Epic, up to 15.6 at the very top. The <a href="calc.html">ROI calculator</a> ranks all 48 and models your room's power budget.</p></details>
-<details><summary><strong>What is SSOL and can I withdraw it?</strong></summary><p>SSOL is the in-game currency added in November 2026. Deposits convert to SSOL one-way; SSOL cannot be withdrawn. Only mining and PvP season rewards produce withdrawable SOL.</p></details>
+<details><summary><strong>What is SSOL and can I withdraw it?</strong></summary><p>SSOL is the in-game currency SolFarmer added in late August 2026. Deposits convert to SSOL one-way; SSOL cannot be withdrawn. Only mining and PvP season rewards produce withdrawable SOL.</p></details>
 <details><summary><strong>What is the minimum withdrawal?</strong></summary><p>0.1 SOL, on-chain, to a Solana wallet. Verify the address at the confirm step — it is the last point where a mistake is reversible.</p></details>
 <details><summary><strong>What unlocks at level 15?</strong></summary><p>The Camp: character classes, timed loot expeditions, and offline turn-based PvP with seasonal SOL prizes.</p></details>
-<details><summary><strong>Is SolFarmer a scam?</strong></summary><p>Not in the classic sense — withdrawals are real and on-chain. It is, however, a pay-to-win game whose economy was restructured in November 2026 so that deposits can no longer leave. Play it free first, deposit only what a game is worth to you, and expect to withdraw rarely.</p></details>
+<details><summary><strong>Is SolFarmer a scam?</strong></summary><p>Not in the classic sense — withdrawals are real and on-chain. It is, however, a pay-to-win game whose economy was restructured in September 2026 so that deposits can no longer leave. Play it free first, deposit only what a game is worth to you, and expect to withdraw rarely.</p></details>
 
 <h2 id="sources">14. Sources and updates</h2>
 <p>Game data verified against SolFarmer's public client: the 48-rig roster (names, prices, hash rates, watt draws, unlock levels), the room roster (slots and watt ceilings), and the economy constants (3% market fee, 80% merge success, 0.00000023 SOL per H/s per minute default yield, 480-minute claim window, 0.1 SOL withdrawal floor) — <a href="https://solfarmer.io">solfarmer.io</a>. Economy rationale: <a href="https://solfarmer.io/ssol-economy">the official SSOL economy page</a>. Earnings context: the game's <a href="https://solfarmer.io/blog/earn-free-solana-2026">official earnings blog post</a> and community coverage on <a href="https://www.reddit.com/r/solfarmer/">r/solfarmer</a>.</p>
@@ -279,7 +315,7 @@
 </article>
 
 <aside class="disclosure">
-<p><em>Independent, unofficial guide. Not affiliated with, endorsed by or sponsored by SolFarmer. Affiliate disclosure: the referral link earns the author a percentage of deposits made by players who register through it, at no cost to you. Figures describe the game as observed from one free-to-play account in November 2026 and may change with game updates.</em></p>
+<p><em>Independent, unofficial guide. Not affiliated with, endorsed by or sponsored by SolFarmer. Affiliate disclosure: the referral link earns the author a percentage of deposits made by players who register through it, at no cost to you. Figures describe the game as observed from one free-to-play account and may change with game updates.</em></p>
 <p>Last updated: November 2026 &middot; <a href="./">Back to the referral code page</a></p>
 </aside>
 </main>
