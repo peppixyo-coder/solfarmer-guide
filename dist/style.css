@@ -15,7 +15,7 @@ body{
     radial-gradient(800px 600px at 50% 115%, #ffb93812, transparent 60%),
     var(--bg);
   background-attachment:fixed;
-  font:17px/1.68 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font:17px/1.74 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   -webkit-font-smoothing:antialiased;
 }
 body::before{
@@ -29,9 +29,6 @@ body::before{
 }
 main,header.site-head{position:relative; z-index:1}
 main{max-width:1080px; margin:0 auto; padding:0 20px 84px}
-article > :is(p,ul,ol,blockquote,.callout,details,nav.toc){max-width:70ch}
-article > .code-box{max-width:70ch}
-article table:not(.roster){max-width:70ch}
 header.site-head{
   max-width:1040px; margin:0 auto; padding:14px 0 12px;
   display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
@@ -182,7 +179,7 @@ tr.best td:last-child{color:#b8f5d2; font-weight:800}
 .fine,.cta-row + .fine{font-size:14.5px; color:#a9b8cd; line-height:1.6}
 .disclosure{
   margin-top:20px; padding:20px 22px; border:1px dashed var(--line2);
-  border-radius:13px; font-size:13.5px; color:#a9b8cd; line-height:1.65;
+  border-radius:13px; font-size:13.5px; color:#a9b8cd; line-height:1.72;
   background:#0e1420aa;
 }
 .code-inline,code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
