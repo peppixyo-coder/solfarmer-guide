@@ -42,7 +42,7 @@
 <body>
 <header class="site-head">
   <a class="brand" href="./">SolFarmer<span>Guide</span></a>
-  <nav><a href="./">Referral code</a><a href="guide.html" aria-current="page">Beginner guide</a><a href="calc.html">ROI calculator</a></nav>
+  <nav><a href="./">Start here</a><a href="guide.html" aria-current="page">Beginner guide</a><a href="calc.html">ROI calculator</a></nav>
 </header>
 
 <main>
@@ -166,6 +166,15 @@
   <li><strong>The level 9 wall is real but finite.</strong> One observed run had ~6,400 XP available passively where ~8,100 were needed — a gap no amount of waiting closes. Through it: keep merging as small currency batches arrive (free, slow — this is the design), or make a small deposit (fast — this is exactly the moment the game wants you to hit).</li>
   <li><strong>Levels keep unlocking real content</strong>: new shop tiers at 11, 15, 18, 24, 25, 32&hellip; The <strong>Forge</strong> (level 10) burns 3 miners to return a rarer variant, and the <strong>Camp</strong> (level 15) opens the whole second game inside the game — see <a href="#camp">section 7</a>.</li>
 </ol>
+<h3 id="xp-churn">The XP churn: buying back your own miners for experience</h3>
+<p>The trick nobody writes down, and it follows straight from the three XP sources above. Every buy, every place and every merge pays XP again &mdash; so a miner you cycle through the shop earns you experience three times over, while most of the money comes back to you.</p>
+<p>The loop, as players run it: list a mid-level rig (a level-5 is the usual choice, since 16 starters went into it and it still has buyers), sell it, then spend the proceeds on the cheapest rigs the shop has. Place each one, merge them back up. Same money, same final hashrate, roughly ten times the transaction count &mdash; which at ~100 XP per starter pair is where the levels come from when the passive drip has stalled.</p>
+<ul>
+  <li><strong>What it costs you:</strong> the 3% marketplace fee, whatever spread the sale takes, and the merge failures (~1 in 5).</li>
+  <li><strong>What it pays you:</strong> XP, and XP only. It creates no hashrate and no SOL.</li>
+  <li><strong>Player-reported,</strong> not in the client: the community figure doing the rounds is 700+ XP inside two minutes for one cycle. The mechanics are verified against the client; the rate is somebody's stopwatch.</li>
+</ul>
+<p>Use it once or twice, when a level wall blocks content you actually want (the Forge at 10, the Camp at 15). Churning for its own sake just feeds the fee.</p>
 <p>Leveling itself is not the point — <strong>hashrate is</strong>. Every level is only worth what it unlocks: a cheaper slot per unit of hashrate, or the next rung of the buy ladder below.</p>
 <h2 id="shop">6. What to buy: the hashrate-per-SOL ladder</h2>
 <p>This is the part most guides hand-wave. Below is the <strong>complete shop roster — all 48 rigs</strong>, taken from the game's own data, with hash rate divided by price and by watt draw. The result is cleaner than the shop screen suggests, and it is the single most useful table in this guide.</p>
@@ -263,6 +272,9 @@
   <li><strong>Prices are player-set and manipulated.</strong> Low-volume items are easy to corner — documented cases include one account controlling ~26% of a 500+ item supply to set the price. Check recent sale history, not just the cheapest listing, before buying anything expensive.</li>
   <li><strong>Sales pay SSOL now.</strong> Before the SSOL change a sale returned withdrawable SOL; today it returns in-game currency. The market is where you convert duplicate rigs into useful ones — not where you cash out.</li>
 </ol>
+<h3 id="capex">Rigs are capital expenditure, not inventory</h3>
+<p>Put those two facts together and the conclusion is blunt: <strong>miner flipping is dead.</strong> A resale pays SSOL, SSOL cannot leave the game, and listings are capped between 0.0001 and 100 SOL (in the game files). Buy low, sell high only moves value around inside the walled garden &mdash; it never becomes a withdrawal.</p>
+<p>So treat every rig as capital expenditure and amortise it like one: what did it cost, what hash-rate does it add, how many days until that hash-rate covers the cost? That is exactly what the <a href="calc.html">ROI calculator</a> computes per rig, before you spend.</p>
 
 <h2 id="withdraw">10. Withdrawing your SOL, step by step</h2>
 <ol>
@@ -283,6 +295,10 @@
   <li><strong>Whether the rate dilutes as the player base grows is not in the client.</strong> Older player write-ups say per-rig income falls as more players join; the client's own accrual preview contains no network-share term. Both can be true if the server keeps adjusting the rate — so treat any "you will earn X per day" claim, including ours, as a snapshot that ages.</li>
   <li><strong>Deposits are not recoverable.</strong> Since the SSOL change, a deposit buys miners that mine back withdrawable SOL over months. That is the deal; read it before you pay.</li>
 </ul>
+<h3 id="arcade">The arcade prize pool, in perspective</h3>
+<p>The arcade advertises <em>daily SSOL prizes</em> across 8 mini-games, one play each. Here is the arithmetic that makes it a toy rather than an income: the whole daily pot is a few hundredths of SSOL &mdash; player screenshots of the leaderboard put it near <strong>0.02 SSOL</strong>, with first place taking 30% of that, i.e. well under a cent. And the winning scores are not human: the top of the board runs into tens of thousands of points a day, which is scripted play, not a good afternoon.</p>
+<p><em>Player-reported:</em> the pot size and the leading scores come from community screenshots in November 2026, not from the client. The shipped code confirms only the structure &mdash; one play per game per day, a daily pool, a leaderboard cut. Treat both numbers as a snapshot.</p>
+<p>Play the arcade for the daily quest credit and five minutes of fun. Anyone presenting it as a revenue stream is describing their own bot.</p>
 <div class="callout"><strong>Verdict.</strong> SolFarmer is a well-made idle game with a real payout rail. As entertainment with a possible upside, fine. As an investment, the house odds are terrible and the "investors" are the product. Never deposit money you would not spend on a video game.</div>
 
 <h2 id="seconds">12. Test it yourself, in three days</h2>

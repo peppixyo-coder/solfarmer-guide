@@ -229,3 +229,13 @@ p code,li code,td code{
   html{scroll-behavior:auto}
   *{transition:none !important}
 }
+
+/* banner gif ufficiale: e' il link di referral principale */
+.banner{display:block; margin:18px 0 10px; padding:clamp(16px,3vw,32px); text-align:center; line-height:0;
+  border:1px solid var(--line2); border-radius:16px;
+  background:linear-gradient(160deg,#0c1420,#090e16); transition:border-color .15s, transform .15s}
+.banner:hover{border-color:var(--accent); transform:translateY(-1px)}
+.banner:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+.banner img{width:min(672px,100%); height:auto; display:block; margin:0 auto; border-radius:9px;
+  image-rendering:pixelated}
+.banner-note{margin:0 0 4px; font-size:13.5px; color:#a9b8cd}
